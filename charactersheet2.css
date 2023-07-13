@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Dosis:wght@300&display=swap');
+
+:root {
+  --clock-radio-op: 0;
+}
+
+.character-section {
+  display: grid;
+  gap: 0em 5em ;
+  justify-content: center;
+/*  background-color: #ccc;*/
+  width: 70%;
+  margin: auto;
+}
+
+.cell {
+/*  background-color: #aaa;*/
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: auto repeat(6,3em);
+  grid-template-rows: 3em repeat(5, 2em);
+  column-gap: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+.action-grid>p {
+  margin: 0px;
+  margin-block: 0px;
+}
+
+.table-topline>p {
+/*  text-orientation: 90deg;*/
+}
+
+.action-grid>input, .action-grid>p {
+  line-height: 0px;
+}
+
+
+input.score {
+  width: 2em;
+}
+
+/* .show-character-section:checked ~ .character-section {
+  display: block;
+} */
+
+/* .show-band-section:checked ~ .band-section {
+  display: block;
+} */
+
+/* .show-revolution-section:checked ~ .revolution-section {
+  display: block;
+} */
+
+/* .section {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+} */
+
+.dropdown {
+/*  width: 100%;*/
+}
+.name {
+/*  width: 100%;*/
+}
+
+body, p {
+  font-family: 'Dosis', sans-serif;
+  font-size: : 16px;
+  line-height: 1.42857143;
+}
+
+p.left-column {
+  line-height: 0px;
+  text-align: right;
+}
+
+.left-column {
+  white-space: nowrap;
+}
+
+h1, h2, h3, h4, h5, h6  {
+  font-family: 'Exo 2',sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+input[type=text], input[type=number], select {
+  padding: 10px;
+  margin:3px;
+  border: 0;
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: : inherit;
+
+}
+
+input[type=text].full {
+  width: 100%;
+}
+
+select.full {
+  width: 100%;
+}
+
+fieldset {
+  border: 0;
+}
+
+.solo-line {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  white-space: nowrap;
+}
+
+.solo-name>input {
+  width: 100%;
+}
+
+.solo-spent {
+  grid-column: 1;
+  align-self: center;
+}
+
+.solo-name {
+  grid-column: 2;
+  align-self: center;
+}
+
+.relationship-line {
+  display: grid;
+  grid-template-columns: 3em 1fr 1fr 1fr;
+  column-gap: 3px;
+  width: 100%;
+}
+
+.relationship-line input[type=text] {
+  width:100%;
+  align-self: center;
+}
+
+.relationship-line input[type=number] {
+  width:100%;
+  align-self: center;
+}
+
+.relationship-line select {
+  width:auto;
+}
+
+.relationship-spent {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.relationship-target {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+.relationship-strength {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+}
+
+.relationship-type {
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+}
+
+.action-grid input[type=number] {
+  padding: 2px;
+  text-align: center;
+}
+
+.solo-line>input {  
+  width: 100%;
+}
+.logo-cell img {
+  width: 100%;
+}
+
+.fame-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fame-line .fame-check,
+.fame-line .fame-score,
+.fame-line .fame-clock {
+  align-self: center;
+}
+
+@media screen and (min-width: 1px) {
+  .character-section {
+    grid-template-columns: 1fr
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .character-section {
+    grid-template-columns: 1fr 1fr
+  }
+  .logo-cell {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+  .names-cell {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .descent-cell {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .roles-cell {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .fame-cell {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .solos-cell {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  .riffs-cell {
+    grid-column: 2;
+    grid-row: 5;
+  }
+
+  .relationships-cell {
+    grid-column: 1 / span 2;
+    grid-row: 6;
+  }
+
+  .stress-cell {
+    grid-column: 1;
+    grid-row: 7;
+  }
+
+  .genre-cell {
+    grid-column: 1;
+    grid-row: 8;
+  }
+  .instruments-cell {
+    grid-column: 1;
+    grid-row: 9;
+  }
+  .action-score-cell {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+  }
+  .violence-cell {
+    grid-column: 2;
+    grid-row: 7 / span 3;
+  }
+}
+
+@media print {
+  .character-section {
+    grid-template-columns: 1fr 1fr
+  }
+  .logo-cell {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .action-score-cell {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+  }
+  .names-cell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .descent-cell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .roles-cell {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .fame-cell {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .riffs-cell {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .solos-cell {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .genre-cell {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  .instruments-cell {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .relationships-cell {
+    grid-column: 1;
+    grid-row: 7;
+  }
+  .stress-cell {
+    grid-column: 1;
+    grid-row: 8;
+  }
+  .violence-cell {
+    grid-column: 2;
+    grid-row: 7 / span 2;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .character-section {
+    grid-template-columns: 1fr 1fr 1fr
+  }
+  .logo-cell {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .action-score-cell {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .names-cell {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+  .descent-cell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .roles-cell {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .fame-cell {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+  }
+  .riffs-cell {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .solos-cell {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .genre-cell {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .instruments-cell {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .relationships-cell {
+    grid-column: 1 / span 2;
+    grid-row: 7;
+  }
+  .stress-cell {
+    grid-column: 1;
+    grid-row: 8;
+  }
+  .violence-cell {
+    grid-column: 3 / span 2;
+    grid-row: 6 / span 3;
+  }
+}
+
+/*  CLOCK STUFF  */
+.clock-container-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1em);
+  grid-template-rows: repeat(4, 1em);  
+}
+.clock-container-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 4/3em);
+  grid-template-rows: repeat(3, 4/3em);
+  width: 4em;
+  height: 4em;
+}
+
+.harm-section {
+  display: inline-block;
+  text-align: center;
+}
+
+.clock {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50%;
+/*  background: black;*/
+  background: conic-gradient(
+    black 0deg, white 1deg, white 44deg, 
+    black 45deg, white 46deg, white 89deg, 
+    black 90deg, white 91deg, white 134deg, 
+    black 135deg, white 136deg, white 179deg,
+    black 180deg, white 181deg, white 214deg,
+    black 215deg, white 216deg, white 269deg,
+    black 270deg, white 270deg, white 314deg,
+    black 315deg, white 316deg);
+  border: 2px solid black;
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 4;
+  z-index: -1;
+}
+
+.clock-checkbox {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  opacity: 0;
+}
+
+.clock-container-8 .clock-0 {
+  grid-row: 2 / span 2;
+  grid-column: 2 / span 2;
+  align-self: center;
+}
+
+.clock-container-8 .clock-1-5, .clock-2 {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.clock-container-8 .clock-3 {
+  grid-row: 2;
+  grid-column: 4;
+}
+
+.clock-container-8 .clock-4-5, .clock-4 {
+  grid-row: 3;
+  grid-column: 4;
+}
+
+.clock-container-8 .clock-6 {
+  grid-row: 4;
+  grid-column: 3;
+}
+
+.clock-container-8 .clock-7-5, .clock-8 {
+  grid-row: 4;
+  grid-column: 2;
+}
+
+.clock-container-8 .clock-9 {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.clock-container-8 .clock-10-5, .clock-10 {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.clock-container-8 .clock-12 {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.clock-container-6 .clock-0 {
+  grid-row: 2;
+  grid-column: 2;
+  align-self: center;
+}
+
+.clock-container-6 .clock-2 {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.clock-container-6 .clock-4 {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.clock-container-6 .clock-6 {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+.clock-container-6 .clock-8 {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.clock-container-6 .clock-10 {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.clock-container-6 .clock-12 {
+  grid-row: 1;
+  grid-column: 1;
+}
+/*
+.clock-checkbox.clock-0:checked ~ .clock {
+  background: white;
+}
+
+.clock-checkbox.clock-1-5:checked ~ .clock {
+  background-image: linear-gradient(135deg, transparent 50%, white 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-2:checked ~ .clock {
+  background-image: linear-gradient(150deg, transparent 50%, white 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-3:checked ~ .clock {
+  background-image: linear-gradient(180deg, transparent 50%, white 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-4-5:checked ~ .clock {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-4:checked ~ .clock {
+  background-image: linear-gradient(210deg, transparent 50%, white 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+.clock-checkbox.clock-6:checked ~ .clock {
+  background-image: linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-7-5:checked ~ .clock {
+  background-image: linear-gradient(135deg, transparent 50%, black 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-8:checked ~ .clock {
+  background-image: linear-gradient(150deg, transparent 50%, black 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-9:checked ~ .clock {
+  background-image: linear-gradient(180deg, transparent 50%, black 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-10:checked ~ .clock {
+  background-image: linear-gradient(210deg, transparent 50%, black 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-10-5:checked ~ .clock {
+  background-image: linear-gradient(225deg, transparent 50%, black 50%),
+  linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.clock-checkbox.clock-12:checked ~ .clock {
+  background: black;
+}
+*/
+input[type="checkbox"].bubble,  input[type="radio"].bubble{
+  width: 1.5em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: black;
+}
+
+input[type="radio"]:checked {
+  background-color: black;
+}

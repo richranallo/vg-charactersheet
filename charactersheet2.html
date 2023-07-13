@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="charactersheet2.css">
+  </head>
+  <body>
+    <div class="character-section">
+      <div class="logo-cell cell">
+          <img src="img/logo-two-line.png">
+      </div>
+      <div class="names-cell">
+        <h2> Names </h2>
+        <input class="full name" name="attr_name" type="text" placeholder="Name/pronouns"/>
+      </div>
+      <div class="descent-cell">
+        <h2> Descent </h2>
+        <select class="full dropdown" name="attr_decent">
+          <option value="earthling">Earthling</option>
+          <option value="starchild">Starchild</option>
+        </select>
+      </div>
+      <div class="roles-cell">
+        <h2> Roles </h2>
+        <select class="full dropdown" name="attr_role1">
+          <option value="diva">Diva</option>
+          <option value="virtuoso">Virtuoso</option>
+          <option value="backbeat">Backbeat</option>
+          <option value="synth-wizard">Synth Wizard</option>
+          <option value="roadie">Roadie</option>
+          <option value="suit">Suit</option>
+          <option value="firebrand">Firebrand</option>
+          <option value="criminal">Criminal</option>
+          <option value="journalist">Journalist</option>
+          <option value="muscle">Muscle</option>
+        </select>
+      </div>
+      <div class="fame-cell">        
+        <h2>Fame</h2>
+        <input type="hidden" name="attr_fameIndex" value="3"/>
+        <div class="fame-line">
+          <div class="fame-check">
+            <input type="checkbox" class="bubble" name="attr_fameExpended" value="1"/>
+          </div>
+          <div class="fame-score">
+            <input type="number" name="attr_fameWidth" class="score" value="ceil(@{fameIndex}/5)+1" /> 
+            ☆ 
+            <input type="number" name="attr_fameheight" class="score" value="(@{fameIndex}-1)%5+2" />
+          </div>
+          <div class="fame-clock clock-container-8">
+            <input type="radio" value="0" name="attr_fameClock" class="clock-checkbox clock-0" checked/>
+            <input type="radio" value="1" name="attr_fameClock" class="clock-checkbox clock-1-5"/>
+            <input type="radio" value="2" name="attr_fameClock" class="clock-checkbox clock-3"/>
+            <input type="radio" value="3" name="attr_fameClock" class="clock-checkbox clock-4-5"/>
+            <input type="radio" value="4" name="attr_fameClock" class="clock-checkbox clock-6"/>
+            <input type="radio" value="5" name="attr_fameClock" class="clock-checkbox clock-7-5"/>
+            <input type="radio" value="6" name="attr_fameClock" class="clock-checkbox clock-9"/>
+            <input type="radio" value="7" name="attr_fameClock" class="clock-checkbox clock-10-5"/>
+            <input type="radio" value="8" name="attr_fameClock" class="clock-checkbox clock-12"/>
+            <div class="clock"></div>
+          </div>
+          <!-- <div class="fame-control">
+            <button type="action" name="act_incFame">Fame +</button>
+            <button type="action" name="act_decFame">Fame —</button>
+          </div> -->
+        </div>
+      </div>
+      <div class="action-score-cell">
+        <h2> Action Scores </h2>
+        <div class="action-grid">
+          <div></div>
+          <div class="table-topline table-topline">
+            Music
+            <input type="number" name="attr_music" class="score" value="@{organizeMusic}+@{performMusic}+@{poseMusic}+@{evadeMusic}+@{perceiveMusic}" disabled="true"/>
+          </div>
+          <div class="table-topline table-topline">
+            Violence
+            <input type="number" name="attr_violence" class="score" value="@{organizeViolence}+@{performViolence}+@{poseViolence}+@{evadeViolence}+@{perceiveViolence}" disabled="true"/>
+          </div>
+          <div class="table-topline table-topline">
+            Tech
+            <input type="number" name="attr_tech" class="score" value="@{organizeTech}+@{performTech}+@{poseTech}+@{evadeTech}+@{perceiveTech}" disabled="true"/>
+          </div>
+          <div class="table-topline table-topline">
+            Authority
+            <input type="number" name="attr_authority" class="score" value="@{organizeAuthority}+@{performAuthority}+@{poseAuthority}+@{evadeAuthority}+@{perceiveAuthority}" disabled="true"/>
+          </div>
+          <div class="table-topline table-topline">
+            Minds
+            <input type="number" name="attr_minds" class="score" value="@{organizeMinds}+@{performMinds}+@{poseMinds}+@{evadeMinds}+@{perceiveMinds}" disabled="true"/>
+          </div>
+          <div class="table-topline table-topline">
+            Mojo
+            <input type="number" name="attr_mojo" class="score" value="@{organizeMojo}+@{performMojo}+@{poseMojo}+@{evadeMojo}+@{perceiveMojo}" disabled="true"/>
+          </div>
+          <div class="left-column">
+            <p class="left-column">Organize&nbsp;<input type="number" name="attr_organize" class="score" value="@{organizeMusic}+@{organizeViolence}+@{organizeTech}+@{organizeAuthority}+@{organizeMinds}+@{organizeMojo}" disabled="true"/></p>
+          </div>
+          <div>
+            <input type="checkbox" name="attr_organizeMusic" value="1" class="bubble" />            
+          </div>
+          <div>
+            <input type="checkbox" name="attr_organizeViolence" value="1" class="bubble" />            
+          </div>
+          <div>
+            <input type="checkbox" name="attr_organizeTech" value="1" class="bubble" />            
+          </div>
+          <div>
+            <input type="checkbox" name="attr_organizeAuthority" value="1" class="bubble" />            
+          </div>
+          <div>
+            <input type="checkbox" name="attr_organizeMinds" value="1" checked="true" disabled="true" class="bubble" />            
+          </div>
+          <div>
+            <input type="checkbox" name="attr_organizeMojo" value="1" class="bubble" />
+          </div>
+
+          <div class="left-column">            
+            <p class="left-column">Perform&nbsp;
+            <input type="number" name="attr_perform" class="score" value="@{performMusic}+@{performViolence}+@{performTech}+@{performAuthority}+@{performMinds}+@{performMojo}" disabled="true"/></p>
+          </div>
+          <div>
+            <input type="checkbox" name="attr_performMusic" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_performViolence" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_performTech" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_performAuthority" value="1" checked="true" disabled="true" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_performMinds" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_performMojo" value="1" class="bubble" />
+          </div>
+          
+          <div class="left-column">
+            <p class="left-column">Pose&nbsp;
+            <input type="number" name="attr_pose" class="score" value="@{poseMusic}+@{poseViolence}+@{poseTech}+@{poseAuthority}+@{poseMinds}+@{poseMojo}" disabled="true"/></p> 
+          </div>
+          <div>
+            <input type="checkbox" name="attr_poseMusic" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_poseViolence" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_poseTech" value="1" checked="true" disabled="true" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_poseAuthority" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_poseMinds" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_poseMojo" value="1" class="bubble" />
+          </div>
+
+          <div class="left-column">
+            <p class="left-column">Perceive&nbsp;
+            <input type="number" name="attr_perceive" class="score" value="@{perceiveMusic}+@{perceiveViolence}+@{perceiveTech}+@{perceiveAuthority}+@{perceiveMinds}+@{perceiveMojo}" disabled="true"/></p> 
+          </div>
+          <div>
+            <input type="checkbox" name="attr_perceiveMusic" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_perceiveViolence" value="1" checked="true" disabled="true" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_perceiveTech" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_perceiveAuthority" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_perceiveMinds" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_perceiveMojo" value="1" class="bubble" />
+          </div>
+
+          <div class="left-column">
+            <p class="left-column">Evade&nbsp;
+            <input type="number" name="attr_evade" class="score" value="@{evadeMusic}+@{evadeViolence}+@{evadeTech}+@{evadeAuthority}+@{evadeMinds}+@{evadeMojo}" disabled="true"/></p>
+          </div>
+          <div>
+            <input type="checkbox" name="attr_evadeMusic" value="1" checked="true" disabled="true" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_evadeViolence" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_evadeTech" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_evadeAuthority" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_evadeMinds" value="1" class="bubble" />
+          </div>
+          <div>
+            <input type="checkbox" name="attr_evadeMojo" value="1" class="bubble" />
+          </div>
+        </div>
+      </div>
+      <div class="genre-cell">
+        <h2> Genre/Rep </h2>
+        <input class="full" name="attr_genre1" type="text"/>
+        <input class="full" name="attr_genre2" type="text"/>
+        <input class="full" name="attr_genre3" type="text"/>
+      </div>
+      <div class="instruments-cell">
+        <h2> Instruments/Styles </h2>
+        <div class="instrument-line">
+          <input class="full" name="attr_instrument" type="text"/>
+        </div>
+        <div class="instrument-line">
+          <input class="full" name="attr_instrument" type="text"/>
+        </div>
+        <div class="instrument-line">
+          <input class="full" name="attr_instrument" type="text"/>
+        </div>
+        <div class="instrument-line">
+          <input class="full" name="attr_instrument" type="text"/>
+        </div>
+        <div class="instrument-line">
+          <input class="full" name="attr_instrument" type="text"/>
+        </div>
+      </div>
+      <div class="riffs-cell">
+        <h2> Riffs </h2>
+        <div class="riff-line">
+          <input class="full" name="attr_riff" type="text"/>
+        </div>
+        <div class="riff-line">
+          <input class="full" name="attr_riff" type="text"/>
+        </div>
+        <div class="riff-line">
+          <input class="full" name="attr_riff" type="text"/>
+        </div>
+        <div class="riff-line">
+          <input class="full" name="attr_riff" type="text"/>
+        </div>
+        <div class="riff-line">
+          <input class="full" name="attr_riff" type="text"/>
+        </div>
+      </div>
+      <div class="solos-cell">
+        <h2> Solos </h2>
+        <div class="solo-line">
+          <div class="solo-spent">
+          <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>            
+          </div>
+          <div class="solo-name">
+            <input name="attr_solo" type="text"/>            
+          </div>
+        </div>   
+        <div class="solo-line">
+          <div class="solo-spent">
+          <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>            
+          </div>
+          <div class="solo-name">
+            <input name="attr_solo" type="text"/>            
+          </div>
+        </div>   
+        <div class="solo-line">
+          <div class="solo-spent">
+          <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>            
+          </div>
+          <div class="solo-name">
+            <input name="attr_solo" type="text"/>            
+          </div>
+        </div>   
+      </div>
+      <div class="relationships-cell">
+        <h2> Relationships </h2>
+        <div class="relationship-line">
+          <div class="relationship-spent">
+            <input type="checkbox" name="attr_relationshipSpent" class="bubble" value="1"/>
+          </div>
+          <div class="relationship-target">
+            <input type="text" name="attr_relationshipCharacter"/>
+          </div>
+          <div class="relationship-strength">
+            <input type="number" min="2" max="6" name="attr_relationshipStrength" class="full"/>
+          </div>
+          <div class="relationship-type">
+            <select name="attr_relationshipType" class="dropdown">
+              <option value="friendship">Friendship</option>
+              <option value="love">Love</option>
+              <option value="rivalry">Rivalry</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="stress-cell">
+        <h2>Stress</h2>
+        <div class="clock-container-6">
+          <input type="radio" value="0" name="attr_stress" class="clock-checkbox clock-0" checked/>
+          <input type="radio" value="2" name="attr_stress" class="clock-checkbox clock-4"/>
+          <input type="radio" value="4" name="attr_stress" class="clock-checkbox clock-8"/>
+          <input type="radio" value="6" name="attr_stress" class="clock-checkbox clock-12"/>
+          <div class="clock"></div>
+        </div>
+      </div>
+      <div class="violence-cell">
+        <h2> Violence </h2>
+        <h3>Injury Limit:</h3>
+        <h3>Rough</h3>
+        <div class="clock-container-6">
+          <input type="radio" value="0" name="attr_roughDamage" class="clock-checkbox clock-0" checked/>
+          <input type="radio" value="1" name="attr_roughDamage" class="clock-checkbox clock-2"/>
+          <input type="radio" value="2" name="attr_roughDamage" class="clock-checkbox clock-4"/>
+          <input type="radio" value="3" name="attr_roughDamage" class="clock-checkbox clock-6"/>
+          <input type="radio" value="4" name="attr_roughDamage" class="clock-checkbox clock-8"/>
+          <input type="radio" value="5" name="attr_roughDamage" class="clock-checkbox clock-10"/>
+          <input type="radio" value="6" name="attr_roughDamage" class="clock-checkbox clock-12"/>
+          <div class="clock"></div>
+        </div>
+        <h3>Bloody</h3>
+        <div class="clock-container-6">
+          <input type="radio" value="0" name="attr_bloodyDamage" class="clock-checkbox clock-0" checked/>
+          <input type="radio" value="1" name="attr_bloodyDamage" class="clock-checkbox clock-2"/>
+          <input type="radio" value="2" name="attr_bloodyDamage" class="clock-checkbox clock-4"/>
+          <input type="radio" value="3" name="attr_bloodyDamage" class="clock-checkbox clock-6"/>
+          <input type="radio" value="4" name="attr_bloodyDamage" class="clock-checkbox clock-8"/>
+          <input type="radio" value="5" name="attr_bloodyDamage" class="clock-checkbox clock-10"/>
+          <input type="radio" value="6" name="attr_bloodyDamage" class="clock-checkbox clock-12"/>
+          <div class="clock"></div>
+        </div>
+        <h3>Deadly</h3>
+        <div class="clock-container-6">
+          <input type="radio" value="0" name="attr_deadlyDamage" class="clock-checkbox clock-0" checked/>
+          <input type="radio" value="1" name="attr_deadlyDamage" class="clock-checkbox clock-2"/>
+          <input type="radio" value="2" name="attr_deadlyDamage" class="clock-checkbox clock-4"/>
+          <input type="radio" value="3" name="attr_deadlyDamage" class="clock-checkbox clock-6"/>
+          <input type="radio" value="4" name="attr_deadlyDamage" class="clock-checkbox clock-8"/>
+          <input type="radio" value="5" name="attr_deadlyDamage" class="clock-checkbox clock-10"/>
+          <input type="radio" value="6" name="attr_deadlyDamage" class="clock-checkbox clock-12"/>
+          <div class="clock"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="text/worker">
+</script>
