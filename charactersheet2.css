@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Dosis:wght@300&display=swap');
 
 :root {
-  --clock-radio-op: 0;
+  --clock-radio-op: 0;  
+  --clock-line-deg: 1deg;
 }
 
 .character-section {
@@ -19,7 +20,7 @@
 
 .action-grid {
   display: grid;
-  grid-template-columns: auto repeat(6,3em);
+  grid-template-columns: 8em repeat(6,2.5em);
   grid-template-rows: 3em repeat(5, 2em);
   column-gap: 5px;
   align-items: center;
@@ -31,12 +32,67 @@
   margin-block: 0px;
 }
 
+.table-topline {
+  text-align: right;
+  height: 7em;
+}
+
 .table-topline>p {
-/*  text-orientation: 90deg;*/
+  transform: rotate(45deg);
+  text-align: right;
 }
 
 .action-grid>input, .action-grid>p {
   line-height: 0px;
+}
+
+.action-grid .organize {  
+    grid-row: 2;
+}
+
+.action-grid .perform {  
+    grid-row: 3;
+}
+
+.action-grid .pose {  
+    grid-row: 4;
+}
+
+.action-grid .perceive {  
+    grid-row: 5;
+}
+
+.action-grid .evade {  
+    grid-row: 6;
+}
+
+.action-grid .horizontal-rule {
+    grid-column: 2 / span 6;
+    vertical-align: middle;
+}
+
+.action-grid .music {
+    grid-column: 2;
+}
+
+.action-grid .violence {
+    grid-column: 3;
+}
+
+.action-grid .tech {
+    grid-column: 4;
+}
+
+.action-grid .authority {
+    grid-column: 5;
+}
+
+.action-grid .minds {
+    grid-column: 6;
+}
+
+.action-grid .mojo {
+    grid-column: 7;
 }
 
 
@@ -95,8 +151,9 @@ input[type=text], input[type=number], select {
   padding: 10px;
   margin:3px;
   border: 0;
+  border-color: #999;
   box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
-  border-radius: 3px;
+  border-radius: 5px;
   font-family: inherit;
   font-size: : inherit;
 
@@ -126,33 +183,38 @@ fieldset {
 
 .solo-spent {
   grid-column: 1;
+  grid-row: 1;
   align-self: center;
 }
 
 .solo-name {
   grid-column: 2;
+  grid-row: 1;
   align-self: center;
+}
+
+.solo-horizontal-rule {
+  grid-column: 1/span 2;
+  grid-row: 1;
 }
 
 .relationship-line {
   display: grid;
-  grid-template-columns: 3em 1fr 1fr 1fr;
-  column-gap: 3px;
+  grid-template-columns: 1fr 5fr 1fr 3fr;
+  column-gap: 0 2em 0 0;
   width: 100%;
 }
 
-.relationship-line input[type=text] {
-  width:100%;
-  align-self: center;
+.relationship-target input[type=text] {
+  width:85%;
 }
 
-.relationship-line input[type=number] {
+.relationship-type input[type=number] {
   width:100%;
-  align-self: center;
 }
 
-.relationship-line select {
-  width:auto;
+.relationship-line ~ select {
+  width:100%;
 }
 
 .relationship-spent {
@@ -193,7 +255,7 @@ fieldset {
 
 .fame-line {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
 }
 
 .fame-line .fame-check,
@@ -202,13 +264,15 @@ fieldset {
   align-self: center;
 }
 
+/* 1 column layout */
 @media screen and (min-width: 1px) {
   .character-section {
     grid-template-columns: 1fr
   }
 }
 
-@media screen and (min-width: 760px) {
+/* 2 column layout */
+@media screen and (min-width: 900px) {
   .character-section {
     grid-template-columns: 1fr 1fr
   }
@@ -276,7 +340,8 @@ fieldset {
 
 @media print {
   .character-section {
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
+    width: 7in;
   }
   .logo-cell {
     grid-column: 1;
@@ -334,6 +399,7 @@ fieldset {
   }
 }
 
+/* 3 column layout  */
 @media screen and (min-width: 1170px) {
   .character-section {
     grid-template-columns: 1fr 1fr 1fr
@@ -361,7 +427,7 @@ fieldset {
     grid-row: 2;
   }
   .fame-cell {
-    grid-column: 2 / span 2;
+    grid-column: 2;
     grid-row: 3;
   }
   .riffs-cell {
@@ -381,7 +447,7 @@ fieldset {
     grid-row: 4;
   }
   .relationships-cell {
-    grid-column: 1 / span 2;
+    grid-column: 1;
     grid-row: 7;
   }
   .stress-cell {
@@ -395,15 +461,20 @@ fieldset {
 }
 
 /*  CLOCK STUFF  */
+.clock-container-3 {
+  display: grid;
+  grid-template-columns: repeat(5, 1em);
+  grid-template-rows: repeat(4, 1em);  
+}
 .clock-container-8 {
   display: grid;
-  grid-template-columns: repeat(4, 1em);
+  grid-template-columns: repeat(5, 1em);
   grid-template-rows: repeat(4, 1em);  
 }
 .clock-container-6 {
   display: grid;
-  grid-template-columns: repeat(3, 4/3em);
-  grid-template-rows: repeat(3, 4/3em);
+  grid-template-columns: repeat(4, 1em);
+  grid-template-rows: repeat(3, 1em);
   width: 4em;
   height: 4em;
 }
@@ -417,180 +488,167 @@ fieldset {
   width: 100%;
   height: 100%;
   display: inline-block;
-  border-radius: 50%;
-/*  background: black;*/
-  background: conic-gradient(
-    black 0deg, white 1deg, white 44deg, 
-    black 45deg, white 46deg, white 89deg, 
-    black 90deg, white 91deg, white 134deg, 
-    black 135deg, white 136deg, white 179deg,
-    black 180deg, white 181deg, white 214deg,
-    black 215deg, white 216deg, white 269deg,
-    black 270deg, white 270deg, white 314deg,
-    black 315deg, white 316deg);
-  border: 2px solid black;
+  z-index: -1;
+}
+.clock-3 {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 4;
+  z-index: -1;
+}
+.clock-6 {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 3;
+  z-index: -1;
+}
+.clock-8 {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
   grid-column: 1 / span 4;
   grid-row: 1 / span 4;
   z-index: -1;
 }
 
-.clock-checkbox {
-  width: 100%;
-  height: 100%;
-  align-self: center;
+
+
+input.hidden {
   opacity: 0;
 }
 
-.clock-container-8 .clock-0 {
-  grid-row: 2 / span 2;
+.clock-checkbox {
+  width: 100%;
+  height: 100%;
+}
+
+.clock-checkbox-0:checked {
+  opacity: 0;
+}
+
+.clock-container-8 .clock-checkbox-0 {
+  grid-row: 1;
+  grid-column: 5;
+}
+.clock-container-8 .clock-checkbox-1 {
+  grid-row: 1;
+  grid-column: 3;
+}
+.clock-container-8 .clock-checkbox-2 {
+  grid-row: 2;
+  grid-column: 4;
+}
+.clock-container-8 .clock-checkbox-3 {
+  grid-row: 3;
+  grid-column: 4;
+}
+.clock-container-8 .clock-checkbox-4 {
+  grid-row: 4;
+  grid-column: 3;
+}
+.clock-container-8 .clock-checkbox-5 {
+  grid-row: 4;
+  grid-column: 2;
+}
+.clock-container-8 .clock-checkbox-6 {
+  grid-row: 3;
+  grid-column: 1;
+}
+.clock-container-8 .clock-checkbox-7 {
+  grid-row: 2;
+  grid-column: 1;
+}
+.clock-container-8 .clock-checkbox-8 {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.clock-container-3 .clock-checkbox-0 {
+  grid-row: 1;
+  grid-column: 5;
+}
+.clock-container-3 .clock-checkbox-1 {
+  grid-row: 1 /span 2;
+  grid-column: 3 /span 2;
+}
+.clock-container-3 .clock-checkbox-2 {
+  grid-row: 3 / span 2;
   grid-column: 2 / span 2;
+}
+.clock-container-3 .clock-checkbox-3 {
+  grid-row: 1 /span 2;
+  grid-column: 1 / span 2;
+}
+
+.clock-container-6 .clock-checkbox-0 {
+  grid-row: 1;
+  grid-column: 4;
   align-self: center;
 }
-
-.clock-container-8 .clock-1-5, .clock-2 {
+.clock-container-6 .clock-checkbox-1 {
   grid-row: 1;
   grid-column: 3;
 }
-
-.clock-container-8 .clock-3 {
-  grid-row: 2;
-  grid-column: 4;
-}
-
-.clock-container-8 .clock-4-5, .clock-4 {
-  grid-row: 3;
-  grid-column: 4;
-}
-
-.clock-container-8 .clock-6 {
-  grid-row: 4;
-  grid-column: 3;
-}
-
-.clock-container-8 .clock-7-5, .clock-8 {
-  grid-row: 4;
-  grid-column: 2;
-}
-
-.clock-container-8 .clock-9 {
-  grid-row: 3;
-  grid-column: 1;
-}
-
-.clock-container-8 .clock-10-5, .clock-10 {
-  grid-row: 2;
-  grid-column: 1;
-}
-
-.clock-container-8 .clock-12 {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-.clock-container-6 .clock-0 {
-  grid-row: 2;
-  grid-column: 2;
-  align-self: center;
-}
-
-.clock-container-6 .clock-2 {
-  grid-row: 1;
-  grid-column: 3;
-}
-
-.clock-container-6 .clock-4 {
+.clock-container-6 .clock-checkbox-2 {
   grid-row: 2;
   grid-column: 3;
 }
-
-.clock-container-6 .clock-6 {
+.clock-container-6 .clock-checkbox-3 {
   grid-row: 3;
   grid-column: 3;
 }
-
-.clock-container-6 .clock-8 {
+.clock-container-6 .clock-checkbox-4 {
   grid-row: 3;
   grid-column: 1;
 }
-
-.clock-container-6 .clock-10 {
+.clock-container-6 .clock-checkbox-5 {
   grid-row: 2;
   grid-column: 1;
 }
-
-.clock-container-6 .clock-12 {
+.clock-container-6 .clock-checkbox-6 {
   grid-row: 1;
   grid-column: 1;
 }
-/*
-.clock-checkbox.clock-0:checked ~ .clock {
-  background: white;
+
+.clock-checkbox-1:checked ~ .clock > .sub-1 {
+  fill:black
+}
+.clock-checkbox-2:checked ~ .clock > .sub-2 {
+  fill:black
+}
+.clock-checkbox-3:checked ~ .clock > .sub-3 {
+  fill:black
+}
+.clock-checkbox-4:checked ~ .clock > .sub-4 {
+  fill:black
+}
+.clock-checkbox-5:checked ~ .clock > .sub-5 {
+  fill:black
+}
+.clock-checkbox-6:checked ~ .clock > .sub-6 {
+  fill:black
+}
+.clock-checkbox-7:checked ~ .clock > .sub-7 {
+  fill:black
+}
+.clock-checkbox-8:checked ~ .clock > .sub-8 {
+  fill:black
+}
+.clock-segment {
+  fill: none;
 }
 
-.clock-checkbox.clock-1-5:checked ~ .clock {
-  background-image: linear-gradient(135deg, transparent 50%, white 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-2:checked ~ .clock {
-  background-image: linear-gradient(150deg, transparent 50%, white 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-3:checked ~ .clock {
-  background-image: linear-gradient(180deg, transparent 50%, white 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-4-5:checked ~ .clock {
-  background-image: linear-gradient(45deg, white 50%, transparent 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-4:checked ~ .clock {
-  background-image: linear-gradient(210deg, transparent 50%, white 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-.clock-checkbox.clock-6:checked ~ .clock {
-  background-image: linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-7-5:checked ~ .clock {
-  background-image: linear-gradient(135deg, transparent 50%, black 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-8:checked ~ .clock {
-  background-image: linear-gradient(150deg, transparent 50%, black 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-9:checked ~ .clock {
-  background-image: linear-gradient(180deg, transparent 50%, black 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-10:checked ~ .clock {
-  background-image: linear-gradient(210deg, transparent 50%, black 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-10-5:checked ~ .clock {
-  background-image: linear-gradient(225deg, transparent 50%, black 50%),
-  linear-gradient(90deg, white 50%, transparent 50%);
-}
-
-.clock-checkbox.clock-12:checked ~ .clock {
-  background: black;
-}
-*/
 input[type="checkbox"].bubble,  input[type="radio"].bubble{
   width: 1.5em;
   height: 1em;
   background-color: white;
   border-radius: 50%;
   vertical-align: middle;
-  border: 1px solid #ddd;
+  border: 1px solid #666;
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
@@ -598,8 +656,10 @@ input[type="checkbox"].bubble,  input[type="radio"].bubble{
 
 input[type="checkbox"]:checked {
   background-color: black;
+  border-color: black;
 }
 
 input[type="radio"]:checked {
   background-color: black;
+  border-color: black;
 }
