@@ -47,9 +47,9 @@
             <input type="checkbox" class="bubble" name="attr_fameExpended" value="1"/>
           </div>
           <div class="fame-score">
-            <input type="number" name="attr_fameWidth" class="score" value="ceil(@{fameIndex}/5)+1" /> 
+            <input type="number" name="attr_fameWidth" min="2" max="6" class="score" value="ceil(@{fameIndex}/5)+1" /> 
             ☆ 
-            <input type="number" name="attr_fameheight" class="score" value="(@{fameIndex}-1)%5+2" />
+            <input type="number" name="attr_fameheight" min="2" max="6" class="score" value="(@{fameIndex}-1)%5+2" />
           </div>
           <div class="fame-clock clock-container-8">
             <input type="radio" value="0" name="attr_fameClock" class="clock-checkbox clock-checkbox-0" checked/>
@@ -125,33 +125,6 @@
         <h2> Action Scores </h2>
         <div class="action-grid">
           <div></div>
-          <div class="table-topline table-topline">
-            <p>Music</p>
-            <input type="number" name="attr_music" class="score" value="@{organizeMusic}+@{performMusic}+@{poseMusic}+@{evadeMusic}+@{perceiveMusic}" disabled="true"/>
-          </div>
-          <div class="table-topline table-topline">
-            <p>Violence</p>
-            <input type="number" name="attr_violence" class="score" value="@{organizeViolence}+@{performViolence}+@{poseViolence}+@{evadeViolence}+@{perceiveViolence}" disabled="true"/>
-          </div>
-          <div class="table-topline table-topline">
-            <p>Tech</p>
-            <input type="number" name="attr_tech" class="score" value="@{organizeTech}+@{performTech}+@{poseTech}+@{evadeTech}+@{perceiveTech}" disabled="true"/>
-          </div>
-          <div class="table-topline table-topline">
-            <p>Authority</p>
-            <input type="number" name="attr_authority" class="score" value="@{organizeAuthority}+@{performAuthority}+@{poseAuthority}+@{evadeAuthority}+@{perceiveAuthority}" disabled="true"/>
-          </div>
-          <div class="table-topline table-topline">
-            <p>Minds</p>
-            <input type="number" name="attr_minds" class="score" value="@{organizeMinds}+@{performMinds}+@{poseMinds}+@{evadeMinds}+@{perceiveMinds}" disabled="true"/>
-          </div>
-          <div class="table-topline table-topline">
-            <p>Mojo</p>
-            <input type="number" name="attr_mojo" class="score" value="@{organizeMojo}+@{performMojo}+@{poseMojo}+@{evadeMojo}+@{perceiveMojo}" disabled="true"/>
-          </div>
-          <div class="left-column organize">
-            <p class="left-column">Organize&nbsp;<input type="number" name="attr_organize" class="score" value="@{organizeMusic}+@{organizeViolence}+@{organizeTech}+@{organizeAuthority}+@{organizeMinds}+@{organizeMojo}" disabled="true"/></p>
-          </div>
           <div class="organize music">
             <input type="checkbox" name="attr_organizeMusic" value="1" class="bubble" />            
           </div>
@@ -171,10 +144,6 @@
             <input type="checkbox" name="attr_organizeMojo" value="1" class="bubble" />
           </div>
 
-          <div class="left-column">            
-            <p class="left-column">Perform&nbsp;
-            <input type="number" name="attr_perform" class="score" value="@{performMusic}+@{performViolence}+@{performTech}+@{performAuthority}+@{performMinds}+@{performMojo}" disabled="true"/></p>
-          </div>
           <div class="perform music">
             <input type="checkbox" name="attr_performMusic" value="1" class="bubble" />
           </div>
@@ -194,10 +163,6 @@
             <input type="checkbox" name="attr_performMojo" value="1" class="bubble" />
           </div>
           
-          <div class="left-column">
-            <p class="left-column">Pose&nbsp;
-            <input type="number" name="attr_pose" class="score" value="@{poseMusic}+@{poseViolence}+@{poseTech}+@{poseAuthority}+@{poseMinds}+@{poseMojo}" disabled="true"/></p> 
-          </div>
           <div class="pose music">
             <input type="checkbox" name="attr_poseMusic" value="1" class="bubble" />
           </div>
@@ -217,10 +182,6 @@
             <input type="checkbox" name="attr_poseMojo" value="1" class="bubble" />
           </div>
 
-          <div class="left-column">
-            <p class="left-column">Perceive&nbsp;
-            <input type="number" name="attr_perceive" class="score" value="@{perceiveMusic}+@{perceiveViolence}+@{perceiveTech}+@{perceiveAuthority}+@{perceiveMinds}+@{perceiveMojo}" disabled="true"/></p> 
-          </div>
           <div class="perceive music">
             <input type="checkbox" name="attr_perceiveMusic" value="1" class="bubble" />
           </div>
@@ -240,14 +201,10 @@
             <input type="checkbox" name="attr_perceiveMojo" value="1" class="bubble" />
           </div>
 
-          <div class="left-column">
-            <p class="left-column">Evade&nbsp;
-            <input type="number" name="attr_evade" class="score" value="@{evadeMusic}+@{evadeViolence}+@{evadeTech}+@{evadeAuthority}+@{evadeMinds}+@{evadeMojo}" disabled="true"/></p>
-          </div>
           <div class="evade music">
             <input type="checkbox" name="attr_evadeMusic" value="1" checked="true" disabled="true" class="bubble" />
           </div>
-          <div class=" evade violence">
+          <div class="evade violence">
             <input type="checkbox" name="attr_evadeViolence" value="1" class="bubble" />
           </div>
           <div class="evade tech">
@@ -262,6 +219,50 @@
           <div class="evade mojo">
             <input type="checkbox" name="attr_evadeMojo" value="1" class="bubble" />
           </div>
+
+          <div class="table-topline music">
+            <p>Music</p>
+            <input type="number" name="attr_music" class="score" value="@{organizeMusic}+@{performMusic}+@{poseMusic}+@{evadeMusic}+@{perceiveMusic}" disabled="true"/>
+          </div>
+          <div class="table-topline violence">
+            <p>Violence</p>
+            <input type="number" name="attr_violence" class="score" value="@{organizeViolence}+@{performViolence}+@{poseViolence}+@{evadeViolence}+@{perceiveViolence}" disabled="true"/>
+          </div>
+          <div class="table-topline tech">
+            <p>Tech</p>
+            <input type="number" name="attr_tech" class="score" value="@{organizeTech}+@{performTech}+@{poseTech}+@{evadeTech}+@{perceiveTech}" disabled="true"/>
+          </div>
+          <div class="table-topline authority">
+            <p>Authority</p>
+            <input type="number" name="attr_authority" class="score" value="@{organizeAuthority}+@{performAuthority}+@{poseAuthority}+@{evadeAuthority}+@{perceiveAuthority}" disabled="true"/>
+          </div>
+          <div class="table-topline minds">
+            <p>Minds</p>
+            <input type="number" name="attr_minds" class="score" value="@{organizeMinds}+@{performMinds}+@{poseMinds}+@{evadeMinds}+@{perceiveMinds}" disabled="true"/>
+          </div>
+          <div class="table-topline mojo">
+            <p>Mojo</p>
+            <input type="number" name="attr_mojo" class="score" value="@{organizeMojo}+@{performMojo}+@{poseMojo}+@{evadeMojo}+@{perceiveMojo}" disabled="true"/>
+          </div>
+          <div class="left-column organize">
+            <p class="left-column">Organize&nbsp;<input type="number" name="attr_organize" class="score" value="@{organizeMusic}+@{organizeViolence}+@{organizeTech}+@{organizeAuthority}+@{organizeMinds}+@{organizeMojo}" disabled="true"/></p>
+          </div>
+          <div class="left-column perform">            
+            <p class="left-column">Perform&nbsp;
+            <input type="number" name="attr_perform" class="score" value="@{performMusic}+@{performViolence}+@{performTech}+@{performAuthority}+@{performMinds}+@{performMojo}" disabled="true"/></p>
+          </div>
+          <div class="left-column pose">
+            <p class="left-column">Pose&nbsp;
+            <input type="number" name="attr_pose" class="score" value="@{poseMusic}+@{poseViolence}+@{poseTech}+@{poseAuthority}+@{poseMinds}+@{poseMojo}" disabled="true"/></p> 
+          </div>
+          <div class="left-column perceive">
+            <p class="left-column">Perceive&nbsp;
+            <input type="number" name="attr_perceive" class="score" value="@{perceiveMusic}+@{perceiveViolence}+@{perceiveTech}+@{perceiveAuthority}+@{perceiveMinds}+@{perceiveMojo}" disabled="true"/></p> 
+          </div>
+          <div class="left-column evade">
+            <p class="left-column">Evade&nbsp;
+            <input type="number" name="attr_evade" class="score" value="@{evadeMusic}+@{evadeViolence}+@{evadeTech}+@{evadeAuthority}+@{evadeMinds}+@{evadeMojo}" disabled="true"/></p>
+          </div>
         </div>
       </div>
       <div class="genre-cell">
@@ -275,33 +276,9 @@
         <div class="instrument-line">
           <input class="full" name="attr_instrument" type="text"/>
         </div>
-        <div class="instrument-line">
-          <input class="full" name="attr_instrument" type="text"/>
-        </div>
-        <div class="instrument-line">
-          <input class="full" name="attr_instrument" type="text"/>
-        </div>
-        <div class="instrument-line">
-          <input class="full" name="attr_instrument" type="text"/>
-        </div>
-        <div class="instrument-line">
-          <input class="full" name="attr_instrument" type="text"/>
-        </div>
       </div>
       <div class="riffs-cell">
         <h2> Riffs </h2>
-        <div class="riff-line">
-          <input class="full" name="attr_riff" type="text"/>
-        </div>
-        <div class="riff-line">
-          <input class="full" name="attr_riff" type="text"/>
-        </div>
-        <div class="riff-line">
-          <input class="full" name="attr_riff" type="text"/>
-        </div>
-        <div class="riff-line">
-          <input class="full" name="attr_riff" type="text"/>
-        </div>
         <div class="riff-line">
           <input class="full" name="attr_riff" type="text"/>
         </div>
@@ -313,7 +290,7 @@
           <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>            
           </div>
           <div class="solo-name">
-            <input name="attr_solo" type="text"/>            
+            <input name="attr_solo" class="full" type="text"/>            
           </div>
         </div> 
       </div>
@@ -324,13 +301,13 @@
             <input type="checkbox" name="attr_relationshipSpent" class="bubble" value="1"/>
           </div>
           <div class="relationship-target">
-            <input type="text" name="attr_relationshipCharacter"/>
+            <input type="text" class="full" name="attr_relationshipCharacter"/>
           </div>
           <div class="relationship-strength">
             <input type="number" min="2" max="6" name="attr_relationshipStrength" class="full"/>
           </div>
           <div class="relationship-type">
-            <select name="attr_relationshipType" class="dropdown">
+            <select name="attr_relationshipType" class="full">
               <option value="friendship">Friendship</option>
               <option value="love">Love</option>
               <option value="rivalry">Rivalry</option>
@@ -338,217 +315,276 @@
           </div>
         </div>
       </div>
-      <div class="stress-cell">
-        <h2>Stress</h2>
-        <div class="clock-container-3">
-          <input type="radio" value="0" name="attr_stress" class="clock-checkbox clock-checkbox-0" checked/>
-          <input type="radio" value="2" name="attr_stress" class="clock-checkbox clock-checkbox-1 hidden"/>
-          <input type="radio" value="4" name="attr_stress" class="clock-checkbox clock-checkbox-2 hidden"/>
-          <input type="radio" value="6" name="attr_stress" class="clock-checkbox clock-checkbox-3 hidden"/>
-          <svg width="100" height="100" class="clock clock-3" viewBox="0 0 100 100">
-            <circle 
-              cx="50"
-              cy="50"
-              r="48"
-              stroke="black"
-              stroke-width="4"
-              fill="none"
-            />
-            <polygon 
-              points="50,50 50,0 100,0 100,78.87"
-              style="stroke:black;stroke-width:4"
-              class="sub-1 sub-2 sub-3 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,78.87 100,100 0,100 0,78.87"
-              style="stroke:black;stroke-width:4"
-              class="sub-2 sub-3 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,78.87 0,0 50,0 "
-              style="stroke:black;stroke-width:4"
-              class="sub-3 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-          </svg>
-        </div>
-      </div>
-      <div class="violence-cell">
-        <h2> Violence </h2>
-        <h3>Injury Limit:</h3>
-        <h3>Rough</h3>
-        <div class="clock-container-6">
-          <input type="radio" value="0" name="attr_roughDamage" class="clock-checkbox clock-checkbox-0" checked/>
-          <input type="radio" value="1" name="attr_roughDamage" class="clock-checkbox clock-checkbox-1 hidden"/>
-          <input type="radio" value="2" name="attr_roughDamage" class="clock-checkbox clock-checkbox-2 hidden"/>
-          <input type="radio" value="3" name="attr_roughDamage" class="clock-checkbox clock-checkbox-3 hidden"/>
-          <input type="radio" value="4" name="attr_roughDamage" class="clock-checkbox clock-checkbox-4 hidden"/>
-          <input type="radio" value="5" name="attr_roughDamage" class="clock-checkbox clock-checkbox-5 hidden"/>
-          <input type="radio" value="6" name="attr_roughDamage" class="clock-checkbox clock-checkbox-6 hidden"/>
-          <svg width="100" height="100" class="clock clock-6" viewBox="0 0 100 100">
-            <circle 
-              cx="50"
-              cy="50"
-              r="48"
-              stroke="black"
-              stroke-width="4"
-              fill="none"
-            />
-            <polygon 
-              points="50,50 50,0 100,0 100,21.13"
-              style="stroke:black;stroke-width:4"
-              class="sub-1 sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,21.13 100,78.87 "
-              style="stroke:black;stroke-width:4"
-              class="sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,78.87 100,100 50,100  "
-              style="stroke:black;stroke-width:4"
-              class="sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 50,100 0,100 0,78.87"
-              style="stroke:black;stroke-width:4"
-              class="sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,78.87 0,21.13"
-              style="stroke:black;stroke-width:4"
-              class="sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,21.13 0,0 50,0 "
-              style="stroke:black;stroke-width:4"
-              class="sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-          </svg>
-        </div>
-        <h3>Bloody</h3>
-        <div class="clock-container-6">
-          <input type="radio" value="0" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-0" checked/>
-          <input type="radio" value="1" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-1 hidden"/>
-          <input type="radio" value="2" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-2 hidden"/>
-          <input type="radio" value="3" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-3 hidden"/>
-          <input type="radio" value="4" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-4 hidden"/>
-          <input type="radio" value="5" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-5 hidden"/>
-          <input type="radio" value="6" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-6 hidden"/>
-          <svg width="100" height="100" class="clock clock-6" viewBox="0 0 100 100">
-            <circle 
-              cx="50"
-              cy="50"
-              r="48"
-              stroke="black"
-              stroke-width="4"
-              fill="none"
-            />
-            <polygon 
-              points="50,50 50,0 100,0 100,21.13"
-              style="stroke:black;stroke-width:4"
-              class="sub-1 sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,21.13 100,78.87 "
-              style="stroke:black;stroke-width:4"
-              class="sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,78.87 100,100 50,100  "
-              style="stroke:black;stroke-width:4"
-              class="sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 50,100 0,100 0,78.87"
-              style="stroke:black;stroke-width:4"
-              class="sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,78.87 0,21.13"
-              style="stroke:black;stroke-width:4"
-              class="sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,21.13 0,0 50,0 "
-              style="stroke:black;stroke-width:4"
-              class="sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-          </svg>
-        </div>
-        <h3>Deadly</h3>
-        <div class="clock-container-6">
-          <input type="radio" value="0" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-0" checked/>
-          <input type="radio" value="1" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-1 hidden"/>
-          <input type="radio" value="2" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-2 hidden"/>
-          <input type="radio" value="3" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-3 hidden"/>
-          <input type="radio" value="4" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-4 hidden"/>
-          <input type="radio" value="5" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-5 hidden"/>
-          <input type="radio" value="6" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-6 hidden"/>
-          <svg width="100" height="100" class="clock clock-6" viewBox="0 0 100 100">
-            <circle 
-              cx="50"
-              cy="50"
-              r="48"
-              stroke="black"
-              stroke-width="4"
-              fill="none"
-            />
-            <polygon 
-              points="50,50 50,0 100,0 100,21.13"
-              style="stroke:black;stroke-width:4"
-              class="sub-1 sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,21.13 100,78.87 "
-              style="stroke:black;stroke-width:4"
-              class="sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 100,78.87 100,100 50,100  "
-              style="stroke:black;stroke-width:4"
-              class="sub-3 sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 50,100 0,100 0,78.87"
-              style="stroke:black;stroke-width:4"
-              class="sub-4 sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,78.87 0,21.13"
-              style="stroke:black;stroke-width:4"
-              class="sub-5 sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-            <polygon 
-              points="50,50 0,21.13 0,0 50,0 "
-              style="stroke:black;stroke-width:4"
-              class="sub-6 clock-segment"
-              clip-path="url(#cut-off-clock)"
-            />
-          </svg>
+      <div class="stress-violence-cell">
+        <div class="stress-violence-container">
+          <div class="stress-header">
+            <h2>Stress</h2>
+          </div>
+          <div class="injury-header">
+            <h2> Injury </h2>
+          </div>
+          <div class="injury-limit">
+            <p>
+              Injury Limit:
+            </p>
+          </div>
+          <div class="stress-cell">
+            <div class="clock-container-3">
+              <input type="radio" value="0" name="attr_stress" class="clock-checkbox clock-checkbox-0" checked/>
+              <input type="radio" value="2" name="attr_stress" class="clock-checkbox clock-checkbox-1 hidden"/>
+              <input type="radio" value="4" name="attr_stress" class="clock-checkbox clock-checkbox-2 hidden"/>
+              <input type="radio" value="6" name="attr_stress" class="clock-checkbox clock-checkbox-3 hidden"/>
+              <svg width="100" height="100" class="clock clock-3" viewBox="0 0 100 100">
+                <circle 
+                  cx="50"
+                  cy="50"
+                  r="48"
+                  stroke="black"
+                  stroke-width="4"
+                  fill="none"
+                />
+                <polygon 
+                  points="50,50 50,0 100,0 100,78.87"
+                  style="stroke:black;stroke-width:4"
+                  class="sub-1 sub-2 sub-3 clock-segment"
+                  clip-path="url(#cut-off-clock)"
+                />
+                <polygon 
+                  points="50,50 100,78.87 100,100 0,100 0,78.87"
+                  style="stroke:black;stroke-width:4"
+                  class="sub-2 sub-3 clock-segment"
+                  clip-path="url(#cut-off-clock)"
+                />
+                <polygon 
+                  points="50,50 0,78.87 0,0 50,0 "
+                  style="stroke:black;stroke-width:4"
+                  class="sub-3 clock-segment"
+                  clip-path="url(#cut-off-clock)"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="rough-cell">
+            <div class="injury-container">
+              <div class="injury-clock-cell">
+                <div class="clock-container-6">
+                  <input type="radio" value="0" name="attr_roughDamage" class="clock-checkbox clock-checkbox-0" checked/>
+                  <input type="radio" value="1" name="attr_roughDamage" class="clock-checkbox clock-checkbox-1 hidden"/>
+                  <input type="radio" value="2" name="attr_roughDamage" class="clock-checkbox clock-checkbox-2 hidden"/>
+                  <input type="radio" value="3" name="attr_roughDamage" class="clock-checkbox clock-checkbox-3 hidden"/>
+                  <input type="radio" value="4" name="attr_roughDamage" class="clock-checkbox clock-checkbox-4 hidden"/>
+                  <input type="radio" value="5" name="attr_roughDamage" class="clock-checkbox clock-checkbox-5 hidden"/>
+                  <input type="radio" value="6" name="attr_roughDamage" class="clock-checkbox clock-checkbox-6 hidden"/>
+                  <svg width="100" height="100" class="clock clock-6" viewBox="0 0 100 100">
+                    <circle 
+                      cx="50"
+                      cy="50"
+                      r="48"
+                      stroke="black"
+                      stroke-width="4"
+                      fill="none"
+                    />
+                    <polygon 
+                      points="50,50 50,0 100,0 100,21.13"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-1 sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 100,21.13 100,78.87 "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 100,78.87 100,100 50,100  "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 50,100 0,100 0,78.87"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 0,78.87 0,21.13"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 0,21.13 0,0 50,0 "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="third-degree">
+                Out
+              </div>
+              <div class="second-degree">
+                Cowed
+              </div>
+              <div class="first-degree">
+                Timid
+              </div>
+            </div>
+          </div>
+          <div class="bloody-cell">
+            <div class="injury-container">
+              <div class="injury-clock-cell">                
+                <div class="clock-container-6">
+                  <input type="radio" value="0" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-0" checked/>
+                  <input type="radio" value="1" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-1 hidden"/>
+                  <input type="radio" value="2" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-2 hidden"/>
+                  <input type="radio" value="3" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-3 hidden"/>
+                  <input type="radio" value="4" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-4 hidden"/>
+                  <input type="radio" value="5" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-5 hidden"/>
+                  <input type="radio" value="6" name="attr_bloodyDamage" class="clock-checkbox clock-checkbox-6 hidden"/>
+                  <svg width="100" height="100" class="clock clock-6" viewBox="0 0 100 100">
+                    <circle 
+                      cx="50"
+                      cy="50"
+                      r="48"
+                      stroke="black"
+                      stroke-width="4"
+                      fill="none"
+                    />
+                    <polygon 
+                      points="50,50 50,0 100,0 100,21.13"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-1 sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 100,21.13 100,78.87 "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 100,78.87 100,100 50,100  "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 50,100 0,100 0,78.87"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 0,78.87 0,21.13"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 0,21.13 0,0 50,0 "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="third-degree">
+                Out
+              </div>
+              <div class="second-degree">
+                Cowed
+              </div>
+              <div class="first-degree">
+                Timid
+              </div>
+            </div>
+          </div>
+          <div class="deadly-cell">
+            <div class="injury-container">
+              <div class="injury-clock-cell">
+                <div class="clock-container-6">
+                  <input type="radio" value="0" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-0" checked/>
+                  <input type="radio" value="1" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-1 hidden"/>
+                  <input type="radio" value="2" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-2 hidden"/>
+                  <input type="radio" value="3" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-3 hidden"/>
+                  <input type="radio" value="4" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-4 hidden"/>
+                  <input type="radio" value="5" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-5 hidden"/>
+                  <input type="radio" value="6" name="attr_deadlyDamage" class="clock-checkbox clock-checkbox-6 hidden"/>
+                  <svg width="100" height="100" class="clock clock-6" viewBox="0 0 100 100">
+                    <circle 
+                      cx="50"
+                      cy="50"
+                      r="48"
+                      stroke="black"
+                      stroke-width="4"
+                      fill="none"
+                    />
+                    <polygon 
+                      points="50,50 50,0 100,0 100,21.13"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-1 sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 100,21.13 100,78.87 "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-2 sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 100,78.87 100,100 50,100  "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-3 sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 50,100 0,100 0,78.87"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-4 sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 0,78.87 0,21.13"
+                      style="stroke:black;stroke-width:4"
+                      class="sub-5 sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                    <polygon 
+                      points="50,50 0,21.13 0,0 50,0 "
+                      style="stroke:black;stroke-width:4"
+                      class="sub-6 clock-segment"
+                      clip-path="url(#cut-off-clock)"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="third-degree">
+                Out
+              </div>
+              <div class="second-degree">
+                Cowed
+              </div>
+              <div class="first-degree">
+                Timid
+              </div>
+            </div>
+          </div>
+          <div class="rough-label">
+            <h3>Rough</h3>
+          </div>
+          <div class="bloody-label">
+            <h3>Bloody</h3>
+          </div>
+          <div class="deadly-label">
+            <h3>Deadly</h3>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-<script type="text/worker">
-</script>

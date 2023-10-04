@@ -14,9 +14,66 @@
   margin: auto;
 }
 
-.cell {
-/*  background-color: #aaa;*/
+input.score {
+  width: 2em;
 }
+
+body, p {
+  font-family: 'Dosis', sans-serif;
+  font-size: : 16px;
+  line-height: 1.42857143;
+}
+
+h1, h2, h3, h4, h5, h6  {
+  font-family: 'Exo 2',sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+input[type=text], input[type=number], select {
+  padding: 5px;
+  margin:3px;
+  border: 0;
+/*  border-color: #999;*/
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: : inherit;
+}
+
+input[type=text].full {
+  width: 100%;
+}
+
+select.full {
+  width: 100%;
+}
+
+input[type="checkbox"].bubble,  input[type="radio"].bubble{
+  width: 1.5em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #666;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin:0;
+}
+
+input[type="checkbox"]:checked {
+  background-color: black;
+  border-color: black;
+}
+
+input[type="radio"]:checked {
+  background-color: black;
+  border-color: black;
+}
+
+
+/* ACTION GRID */
 
 .action-grid {
   display: grid;
@@ -27,23 +84,20 @@
   text-align: center;
 }
 
-.action-grid>p {
-  margin: 0px;
-  margin-block: 0px;
-}
-
 .table-topline {
   text-align: right;
   height: 7em;
+  grid-row: 1;
+  z-index: -1;
+}
+
+.left-column {
+  grid-column: 1;
 }
 
 .table-topline>p {
   transform: rotate(45deg);
   text-align: right;
-}
-
-.action-grid>input, .action-grid>p {
-  line-height: 0px;
 }
 
 .action-grid .organize {  
@@ -64,11 +118,6 @@
 
 .action-grid .evade {  
     grid-row: 6;
-}
-
-.action-grid .horizontal-rule {
-    grid-column: 2 / span 6;
-    vertical-align: middle;
 }
 
 .action-grid .music {
@@ -95,90 +144,75 @@
     grid-column: 7;
 }
 
-
-input.score {
-  width: 2em;
+.action-grid .music:hover ~ .music > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
 }
 
-/* .show-character-section:checked ~ .character-section {
-  display: block;
-} */
-
-/* .show-band-section:checked ~ .band-section {
-  display: block;
-} */
-
-/* .show-revolution-section:checked ~ .revolution-section {
-  display: block;
-} */
-
-/* .section {
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-} */
-
-.dropdown {
-/*  width: 100%;*/
-}
-.name {
-/*  width: 100%;*/
+.action-grid .violence:hover ~ .violence > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
 }
 
-body, p {
-  font-family: 'Dosis', sans-serif;
-  font-size: : 16px;
-  line-height: 1.42857143;
+.action-grid .tech:hover ~ .tech > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
 }
 
-p.left-column {
-  line-height: 0px;
-  text-align: right;
+.action-grid .authority:hover ~ .authority > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .minds:hover ~ .minds > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .mojo:hover ~ .mojo > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .organize:hover ~ .organize > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .perform:hover ~ .perform > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .pose:hover ~ .pose > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .perceive:hover ~ .perceive > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .evade:hover ~ .evade > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
 }
 
 .left-column {
+  line-height: 0px;
+  text-align: right;
   white-space: nowrap;
 }
 
-h1, h2, h3, h4, h5, h6  {
-  font-family: 'Exo 2',sans-serif;
-  font-weight: 500;
-  line-height: 1.1;
+.action-grid input[type=number] {
+  padding: 2px;
+  text-align: center;
 }
 
-input[type=text], input[type=number], select {
-  padding: 10px;
-  margin:3px;
-  border: 0;
-  border-color: #999;
-  box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
-  border-radius: 5px;
-  font-family: inherit;
-  font-size: : inherit;
-
-}
-
-input[type=text].full {
+.logo-cell img {
   width: 100%;
 }
 
-select.full {
-  width: 100%;
-}
-
-fieldset {
-  border: 0;
-}
-
+/* SOLOS */
 .solo-line {
   display: grid;
   grid-template-columns: 2em 1fr;
   white-space: nowrap;
+  column-gap: 15px;
 }
 
 .solo-name>input {
-  width: 100%;
+/*  width: 100%;*/
 }
 
 .solo-spent {
@@ -193,28 +227,23 @@ fieldset {
   align-self: center;
 }
 
-.solo-horizontal-rule {
-  grid-column: 1/span 2;
-  grid-row: 1;
-}
-
+/* RELATIONSHIPS */
 .relationship-line {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr 3fr;
-  column-gap: 0 2em 0 0;
-  width: 100%;
+  grid-template-columns: 2em 1fr 2em 8em;
+  column-gap: 15px;
 }
 
 .relationship-target input[type=text] {
-  width:85%;
+/*  width:75%;*/
 }
 
-.relationship-type input[type=number] {
+.relationship-type select {
   width:100%;
 }
 
 .relationship-line ~ select {
-  width:100%;
+/*  width:100%;*/
 }
 
 .relationship-spent {
@@ -241,21 +270,12 @@ fieldset {
   align-self: center;
 }
 
-.action-grid input[type=number] {
-  padding: 2px;
-  text-align: center;
-}
-
-.solo-line>input {  
-  width: 100%;
-}
-.logo-cell img {
-  width: 100%;
-}
-
+/* FAME  */
 .fame-line {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 2em 3fr 1fr;
+  align-items: center;
+  column-gap: 15px;
 }
 
 .fame-line .fame-check,
@@ -263,11 +283,94 @@ fieldset {
 .fame-line .fame-clock {
   align-self: center;
 }
+.fame-line .fame-check {
+  grid-column: 1;
+  grid-row: 1;
+}
+.fame-line .fame-score {
+  grid-column: 2;
+  grid-row: 1;
+}
+.fame-line .fame-clock {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* INJURY/STRESS */
+.injury-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+.injury-clock-cell {
+  grid-row: 1 / span 3;
+  grid-column: 2;
+}
+.third-degree {
+  grid-row: 1;
+  grid-column: 1;
+}
+.second-degree {
+  grid-row: 2;
+  grid-column: 1;
+}
+.first-degree {
+  grid-row: 3;
+  grid-column: 1;
+}
+.rough-label {
+  grid-row: 3;
+  grid-column: 2;
+  text-align: center;
+}
+.bloody-label {
+  grid-row: 3;
+  grid-column: 3;
+  text-align: center;
+}
+.deadly-label {
+  grid-row: 3;
+  grid-column: 4;
+  text-align: center;
+}
 
 /* 1 column layout */
 @media screen and (min-width: 1px) {
   .character-section {
     grid-template-columns: 1fr
+  }  
+  .stress-violence-container {
+    display: grid;
+    grid-template-columns: 1fr;
+/*    grid-template-rows: auto 3em 1em;*/
+  }
+  .stress-header {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .stress-cell {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .injury-header {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  .injury-limit {
+    grid-row: 4;
+    grid-column: 1;
+  }
+  .rough-cell {
+    grid-row: 5;
+    grid-column: 1;
+  }
+  .bloody-cell {
+    grid-row: 6;
+    grid-column: 1;
+  }
+  .deadly-cell {
+    grid-row: 7;
+    grid-column: 1;
   }
 }
 
@@ -302,12 +405,12 @@ fieldset {
 
   .solos-cell {
     grid-column: 1;
-    grid-row: 5;
+    grid-row: 7;
   }
 
   .riffs-cell {
     grid-column: 2;
-    grid-row: 5;
+    grid-row: 7 / span 2;
   }
 
   .relationships-cell {
@@ -321,22 +424,112 @@ fieldset {
   }
 
   .genre-cell {
-    grid-column: 1;
-    grid-row: 8;
+    grid-column: 2;
+    grid-row: 5;
   }
   .instruments-cell {
     grid-column: 1;
-    grid-row: 9;
+    grid-row: 5;
   }
   .action-score-cell {
     grid-column: 2;
     grid-row: 2 / span 2;
   }
-  .violence-cell {
+  .stress-violence-cell {
+    grid-column: 1 / span 2;
+    grid-row: 10;
+  }
+  .stress-violence-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 3em 1em;
+  }
+  .stress-header {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .injury-header {
+    grid-row: 1;
     grid-column: 2;
-    grid-row: 7 / span 3;
+  }
+  .injury-limit {
+    grid-row: 1;
+    grid-column: 3;
+  }
+  .stress-cell {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .rough-cell {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  .bloody-cell {
+    grid-row: 2;
+    grid-column: 3;
+  }
+  .deadly-cell {
+    grid-row: 2;
+    grid-column: 4;
   }
 }
+
+/* 3 column layout  */
+/*@media screen and (min-width: 1170px) {
+  .character-section {
+    grid-template-columns: 1fr 1fr 1fr
+  }
+  .logo-cell {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .action-score-cell {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .names-cell {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+  .descent-cell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .roles-cell {
+    grid-column: 3;
+    grid-row: 2/span 2;
+  }
+  .fame-cell {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .riffs-cell {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .solos-cell {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .genre-cell {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .instruments-cell {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .relationships-cell {
+    grid-column: 1;
+    grid-row: 7;
+  }
+  .stress-violence-cell {
+    grid-column: 1 / span 3;
+    grid-row: 8;
+  }
+}*/
 
 @media print {
   .character-section {
@@ -399,68 +592,7 @@ fieldset {
   }
 }
 
-/* 3 column layout  */
-@media screen and (min-width: 1170px) {
-  .character-section {
-    grid-template-columns: 1fr 1fr 1fr
-  }
-  .logo-cell {
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-  .action-score-cell {
-    grid-column: 1;
-    grid-row: 4;
-  }
-  .names-cell {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-  .descent-cell {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .roles-cell {
-    grid-column: 3;
-    grid-row: 2;
-  }
-  .fame-cell {
-    grid-column: 2;
-    grid-row: 3;
-  }
-  .riffs-cell {
-    grid-column: 2;
-    grid-row: 4;
-  }
-  .solos-cell {
-    grid-column: 1;
-    grid-row: 6;
-  }
-  .genre-cell {
-    grid-column: 2;
-    grid-row: 6;
-  }
-  .instruments-cell {
-    grid-column: 3;
-    grid-row: 4;
-  }
-  .relationships-cell {
-    grid-column: 1;
-    grid-row: 7;
-  }
-  .stress-cell {
-    grid-column: 1;
-    grid-row: 8;
-  }
-  .violence-cell {
-    grid-column: 3 / span 2;
-    grid-row: 6 / span 3;
-  }
-}
-
-/*  CLOCK STUFF  */
+/*  CLOCKS */
 .clock-container-3 {
   display: grid;
   grid-template-columns: repeat(5, 1em);
@@ -473,8 +605,8 @@ fieldset {
 }
 .clock-container-6 {
   display: grid;
-  grid-template-columns: repeat(4, 1em);
-  grid-template-rows: repeat(3, 1em);
+  grid-template-columns: repeat(4, 1.25em);
+  grid-template-rows: repeat(3, 1.25em);
   width: 4em;
   height: 4em;
 }
@@ -515,8 +647,6 @@ fieldset {
   z-index: -1;
 }
 
-
-
 input.hidden {
   opacity: 0;
 }
@@ -524,6 +654,7 @@ input.hidden {
 .clock-checkbox {
   width: 100%;
   height: 100%;
+  margin:0;
 }
 
 .clock-checkbox-0:checked {
@@ -640,26 +771,4 @@ input.hidden {
 }
 .clock-segment {
   fill: none;
-}
-
-input[type="checkbox"].bubble,  input[type="radio"].bubble{
-  width: 1.5em;
-  height: 1em;
-  background-color: white;
-  border-radius: 50%;
-  vertical-align: middle;
-  border: 1px solid #666;
-  -webkit-appearance: none;
-  outline: none;
-  cursor: pointer;
-}
-
-input[type="checkbox"]:checked {
-  background-color: black;
-  border-color: black;
-}
-
-input[type="radio"]:checked {
-  background-color: black;
-  border-color: black;
 }
