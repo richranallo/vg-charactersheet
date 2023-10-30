@@ -13,45 +13,54 @@
   margin: auto;
 }
 .logo-cell {
-  grid-area: logo;
-  padding-left: 25%;
-  padding-right: 25%;
+  grid-area: logo-cell;
+}
+.sheet-type-cell {
+  grid-area: sheet-type-cell;
 }
 .names-cell {
   grid-area: names;
+  padding-top: 1em;
 }
 .descent-cell {
   grid-area: descent;
+  padding-top: 1em;
 }
 .roles-cell {
   grid-area: roles;
+  padding-top: 1em;
 }
 .fame-cell {
   grid-area: fame;
+  padding-top: 1em;
 }
 .solos-cell {
   grid-area: solos;
+  padding-top: 1em;
 }
 .riffs-cell {
   grid-area: riffs;
+  padding-top: 1em;
 }
 .relationships-cell {
   grid-area: relationships;
-}
-.stress-cell {
-  grid-area: stress;
+  padding-top: 1em;
 }
 .genre-cell {
   grid-area: genre;
+  padding-top: 1em;
 }
 .instruments-cell {
   grid-area: instruments;
+  padding-top: 1em;
 }
 .action-score-cell {
   grid-area: action-scores;
+  padding-top: 1em;
 }
 .stress-violence-cell {
-    grid-area: injury;
+  grid-area: injury;
+  padding-top: 1em;
 }
 .stress-cell {
   grid-area: stress;
@@ -83,40 +92,26 @@
       "riffs"
       "solos"
       "injury"
-  }  
-  .stress-violence-container {
-    display: grid;
-    align-content: left;
-    grid-template-areas: 
-    "stress"
-    "."
-    "rough"
-    "."
-    "bloody"
-    "."
-    "deadly";
   }
 }
 
 /* 2 column layout */
 @media screen and (min-width: 900px) {
+  .header-section {
+    display: grid;
+    grid-template-areas:
+      "logo-cell  sheet-type-cell"
+  }
   .character-section {
     grid-template-areas:
-      "logo         sheet-type"
-      "names        action-scores"
-      "descent      action-scores"
-      "roles        action-scores"
-      "roles        fame"
-      "instruments  genre"
-      "riffs        relationships"
-      "riffs        solos"
-      "injury       injury"
-  }
-  .stress-violence-container {
-    display: grid;
-    align-content: left;
-    grid-template-areas: 
-    "stress   rough   bloody  deadly";
+      "names          descent"
+      "action-scores  roles"
+      "action-scores  instruments"
+      "fame           genre"
+      "relationships  genre"
+      "relationships  riffs"
+      "solos          riffs"
+      "injury         injury"
   }
   .stress-header {
     grid-row: 1;
@@ -157,63 +152,9 @@
       "action-scores  roles       riffs"
       "relationships  instruments solos"
       "relationships  genre       solos"
-      "injury         injury      injury   "
+      "injury         injury      injury"
   }
-/*  .logo-cell {
-    grid-column: 1;
-    grid-row: 1 / span 3;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-  .action-score-cell {
-    grid-column: 1;
-    grid-row: 4;
-  }
-  .names-cell {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-  .descent-cell {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .roles-cell {
-    grid-column: 3;
-    grid-row: 2/span 2;
-  }
-  .fame-cell {
-    grid-column: 2;
-    grid-row: 3;
-  }
-  .riffs-cell {
-    grid-column: 2;
-    grid-row: 4;
-  }
-  .solos-cell {
-    grid-column: 1;
-    grid-row: 6;
-  }
-  .genre-cell {
-    grid-column: 2;
-    grid-row: 6;
-  }
-  .instruments-cell {
-    grid-column: 3;
-    grid-row: 4;
-  }
-  .relationships-cell {
-    grid-column: 1;
-    grid-row: 7;
-  }
-  .stress-violence-cell {
-    grid-column: 1 / span 3;
-    grid-row: 8;
-  }*/
 }
-
-/*.score {
-  width: 2em;
-}*/
 
 .ui-dialog .charsheet .action-grid input[type="number"].score {
   width: 2em;
@@ -432,9 +373,14 @@ input[type="radio"]:checked {
 }
 
 /* RELATIONSHIPS */
+
+.ui-dialog .charsheet input[type=number] {
+  width: 3em;
+}
+
 .relationship-line {
   display: grid;
-  grid-template-columns: 2em 1fr 2em 8em;
+  grid-template-columns: repeat(4, auto);
   column-gap: 15px;
 }
 
@@ -501,6 +447,12 @@ input[type="radio"]:checked {
 }
 
 /* INJURY/STRESS */
+.stress-violence-container {
+  display: grid;
+  align-content: left;
+  grid-template-areas: 
+  "stress   rough   bloody  deadly";
+}
 .stress-violence-container .stress-cell {
   grid-area: stress;
 }
@@ -630,7 +582,7 @@ input[type="radio"]:checked {
 .clock-2 {
   grid-area: c2;
 }
-.clock-3{
+.clock-3 {
   grid-area: c3;
 }
 .clock-4 {
@@ -662,8 +614,8 @@ input[type="radio"]:checked {
   "c3 c3  c1  c1  ww"
   "xx c2  c2  yy  yy"
   "xx c2  c2  yy  yy";
-  width: 5.25em;
-  height: 4em;
+  width: 6.25em;
+  height: 5em;
 }
 
 .clock-container-3 .clock {
@@ -715,8 +667,8 @@ input[type="radio"]:checked {
   "c6   xx  c1  c0"
   "c5   xx  c2  yy"
   "c4   xx  c3  yy";
-  width: 5em;
-  height: 3.75em;
+  width: 6.66667em;
+  height: 5em;
 }
 
 .clock-container-6 .clock {
@@ -795,16 +747,14 @@ input[type="radio"]:checked {
 
 .clock-container-8 {
   display: grid;
-/*  grid-template-columns: repeat(5, 1em);
-  grid-template-rows: repeat(4, 1em);  */
   grid-template-areas:
   " ww  c8  c1  xx  c0"
   " c7  yy  yy  c2  zz"
   " c6  yy  yy  c3  zz"
   " aa  c5  c4  bb  zz"
   ;
-  width: 5em;
-  height: 4em;
+  width: 6.25em;
+  height: 5em;
 }
 
 .clock-container-8 .clock {

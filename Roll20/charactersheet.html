@@ -4,13 +4,20 @@
     <link rel="stylesheet" href="charactersheet.css">
   </head>
   <body>
-    <div class="character-section">
-      <div class="logo-cell cell">
-          <img src="img/logo-two-line.png">
+    <div class="header-section">
+      <div class="logo-cell">
+          LOGO
       </div>
+      <div class="sheet-type-cell">
+        TYPE
+      </div>
+    </div>
+    <div class="character-section">
       <div class="names-cell">
         <h2> Names </h2>
-        <input class="full name" name="attr_name" type="text" placeholder="Name/pronouns"/>
+        <fieldset class="repeating_names">
+          <input class="full name" name="attr_name" type="text" placeholder="Name/pronouns"/>
+        </fieldset>
       </div>
       <div class="descent-cell">
         <h2> Descent </h2>
@@ -21,18 +28,21 @@
       </div>
       <div class="roles-cell">
         <h2> Roles </h2>
-        <select class="full dropdown" name="attr_role1">
-          <option value="diva">Diva</option>
-          <option value="virtuoso">Virtuoso</option>
-          <option value="backbeat">Backbeat</option>
-          <option value="synth-wizard">Synth Wizard</option>
-          <option value="roadie">Roadie</option>
-          <option value="suit">Suit</option>
-          <option value="firebrand">Firebrand</option>
-          <option value="criminal">Criminal</option>
-          <option value="journalist">Journalist</option>
-          <option value="muscle">Muscle</option>
-        </select>
+        <fieldset class="repeating_roles">
+          <select class="full dropdown" name="attr_role1">
+            <option></option>
+            <option value="diva">Diva</option>
+            <option value="virtuoso">Virtuoso</option>
+            <option value="backbeat">Backbeat</option>
+            <option value="synth-wizard">Synth Wizard</option>
+            <option value="roadie">Roadie</option>
+            <option value="suit">Suit</option>
+            <option value="firebrand">Firebrand</option>
+            <option value="criminal">Criminal</option>
+            <option value="journalist">Journalist</option>
+            <option value="muscle">Muscle</option>
+          </select>
+        </fieldset>
       </div>
       <div class="fame-cell">
         <h2>Fame</h2>
@@ -243,62 +253,72 @@
       </div>
       <div class="genre-cell">
         <h2> Genre/Rep </h2>
-        <input class="full" name="attr_genre1" type="text"/>
+        <fieldset class="repeating_genre">
+          <input class="full" name="attr_genre1" type="text"/>
+        </fieldset>
       </div>
       <div class="instruments-cell">
         <h2> Instruments/Styles </h2>
-        <div class="instrument-line">
-          <input class="full" name="attr_instrument" type="text"/>
-        </div>
+        <fieldset class="repeating_instruments">
+          <div class="instrument-line">
+            <input class="full" name="attr_instrument" type="text"/>
+          </div>
+        </fieldset>
       </div>
       <div class="riffs-cell">
         <h2> Riffs </h2>
-        <div class="riff-line">
-          <input class="full" name="attr_riff" type="text"/>
-        </div>
+        <fieldset class="repeating_riffs">
+          <div class="riff-line">
+            <input class="full" name="attr_riff" type="text"/>
+          </div>          
+        </fieldset>
       </div>
       <div class="solos-cell">
         <h2> Solos </h2>
-        <div class="solo-line">
-          <div class="solo-spent">
-          <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>
+        <fieldset class="repeating_solos">
+          <div class="solo-line">
+            <div class="solo-spent">
+            <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>
+            </div>
+            <div class="solo-name">
+              <input name="attr_solo" class="full" type="text"/>
+            </div>
           </div>
-          <div class="solo-name">
-            <input name="attr_solo" class="full" type="text"/>
-          </div>
-        </div>
+        </fieldset>
       </div>
       <div class="relationships-cell">
         <h2> Relationships </h2>
-        <div class="relationship-line">
-          <div class="relationship-spent">
-            <input type="checkbox" name="attr_relationshipSpent" class="bubble" value="1"/>
+        <fieldset class="repeating_relationships">
+          <div class="relationship-line">
+            <div class="relationship-spent">
+              <input type="checkbox" name="attr_relationshipSpent" class="bubble" value="1"/>
+            </div>
+            <div class="relationship-target">
+              <input type="text" class="full" name="attr_relationshipCharacter"/>
+            </div>
+            <div class="relationship-strength">
+              <input type="number" min="2" max="6" name="attr_relationshipStrength" class="full"/>
+            </div>
+            <div class="relationship-type">
+              <select name="attr_relationshipType" class="full">
+                <option value="friendship">Friendship</option>
+                <option value="love">Love</option>
+                <option value="rivalry">Rivalry</option>
+              </select>
+            </div>
           </div>
-          <div class="relationship-target">
-            <input type="text" class="full" name="attr_relationshipCharacter"/>
-          </div>
-          <div class="relationship-strength">
-            <input type="number" min="2" max="6" name="attr_relationshipStrength" class="full"/>
-          </div>
-          <div class="relationship-type">
-            <select name="attr_relationshipType" class="full">
-              <option value="friendship">Friendship</option>
-              <option value="love">Love</option>
-              <option value="rivalry">Rivalry</option>
-            </select>
-          </div>
-        </div>
+        </fieldset>
       </div>
       <div class="stress-violence-cell">
         <h2>
           Stress & Injury
         </h2>
+        <div class="injury-limit">
+          <h3>
+            Injury Limit:
+          </h3>
+        </div>
         <div class="stress-violence-container">
-          <!-- <div class="injury-limit">
-            <p>
-              Injury Limit:
-            </p>
-          </div> -->
           <div class="stress-cell">
             <div class="injury-container">
               <div class="injury-clock">
