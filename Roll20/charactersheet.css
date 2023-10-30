@@ -1,0 +1,908 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Dosis:wght@300&display=swap');
+
+:root {
+  --clock-radio-op: 0;  
+  --clock-line-deg: 1deg;
+}
+
+.character-section {
+  display: grid;
+  gap: 0em 5em ;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+}
+.logo-cell {
+  grid-area: logo;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+.names-cell {
+  grid-area: names;
+}
+.descent-cell {
+  grid-area: descent;
+}
+.roles-cell {
+  grid-area: roles;
+}
+.fame-cell {
+  grid-area: fame;
+}
+.solos-cell {
+  grid-area: solos;
+}
+.riffs-cell {
+  grid-area: riffs;
+}
+.relationships-cell {
+  grid-area: relationships;
+}
+.stress-cell {
+  grid-area: stress;
+}
+.genre-cell {
+  grid-area: genre;
+}
+.instruments-cell {
+  grid-area: instruments;
+}
+.action-score-cell {
+  grid-area: action-scores;
+}
+.stress-violence-cell {
+    grid-area: injury;
+}
+.stress-cell {
+  grid-area: stress;
+}
+.rough-cell {
+  grid-area: rough;
+}
+.bloody-cell {
+  grid-area: bloody;
+}
+.deadly-cell {
+  grid-area: deadly;
+}
+
+/* 1 column layout */
+@media screen and (min-width: 1px) {
+  .character-section {
+    grid-template-areas:
+      "logo"         
+      "sheet-type"
+      "names"
+      "descent"
+      "roles"
+      "action-scores"
+      "instruments"
+      "fame"
+      "genre"
+      "relationships"
+      "riffs"
+      "solos"
+      "injury"
+  }  
+  .stress-violence-container {
+    display: grid;
+    align-content: left;
+    grid-template-areas: 
+    "stress"
+    "."
+    "rough"
+    "."
+    "bloody"
+    "."
+    "deadly";
+  }
+}
+
+/* 2 column layout */
+@media screen and (min-width: 900px) {
+  .character-section {
+    grid-template-areas:
+      "logo         sheet-type"
+      "names        action-scores"
+      "descent      action-scores"
+      "roles        action-scores"
+      "roles        fame"
+      "instruments  genre"
+      "riffs        relationships"
+      "riffs        solos"
+      "injury       injury"
+  }
+  .stress-violence-container {
+    display: grid;
+    align-content: left;
+    grid-template-areas: 
+    "stress   rough   bloody  deadly";
+  }
+  .stress-header {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .injury-header {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .injury-limit {
+    grid-row: 1;
+    grid-column: 3;
+  }
+  .rough-label {
+    grid-row: 3;
+    grid-column: 2;
+    text-align: center;
+  }
+  .bloody-label {
+    grid-row: 3;
+    grid-column: 3;
+    text-align: center;
+  }
+  .deadly-label {
+    grid-row: 3;
+    grid-column: 4;
+    text-align: center;
+  }
+}
+
+/* 3 column layout  */
+@media screen and (min-width: 1170px) {
+  .character-section {
+    grid-template-areas:
+      "logo           logo        sheet-type"
+      "names          descent     fame"
+      "action-scores  roles       riffs"
+      "action-scores  roles       riffs"
+      "relationships  instruments solos"
+      "relationships  genre       solos"
+      "injury         injury      injury   "
+  }
+/*  .logo-cell {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .action-score-cell {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .names-cell {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+  .descent-cell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .roles-cell {
+    grid-column: 3;
+    grid-row: 2/span 2;
+  }
+  .fame-cell {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .riffs-cell {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .solos-cell {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .genre-cell {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .instruments-cell {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .relationships-cell {
+    grid-column: 1;
+    grid-row: 7;
+  }
+  .stress-violence-cell {
+    grid-column: 1 / span 3;
+    grid-row: 8;
+  }*/
+}
+
+/*.score {
+  width: 2em;
+}*/
+
+.ui-dialog .charsheet .action-grid input[type="number"].score {
+  width: 2em;
+}
+
+body, p {
+  font-family: 'Dosis', sans-serif;
+  font-size: : 16px;
+  line-height: 1.42857143;
+}
+
+h1, h2, h3, h4, h5, h6  {
+  font-family: 'Exo 2',sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+input[type=text], input[type=number], select {
+  padding: 5px;
+  margin:3px;
+  border: 0;
+  background-color: white;
+  box-shadow: 0 0 15px 5px rgba(0,0,0,0.07);
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: : inherit;
+}
+
+input[type=text].full {
+  width: 100%;
+}
+
+select.full {
+  width: 100%;
+}
+
+input[type="checkbox"].bubble,  input[type="radio"].bubble{
+  width: 1.5em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #666;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  margin:0;
+}
+
+input[type="checkbox"]:checked {
+  background-color: black;
+  border-color: black;
+}
+
+input[type="radio"]:checked {
+  background-color: black;
+  border-color: black;
+}
+
+
+/* ACTION GRID */
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 8em repeat(6,2.5em);
+  grid-template-rows: 3em repeat(5, 2em);
+  column-gap: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+.action-grid input {
+/*  box-shadow: none;*/
+}
+.table-topline {
+  text-align: right;
+  height: 7em;
+  grid-row: 1;
+  z-index: -1;
+}
+
+.left-column {
+  grid-column: 1;
+}
+
+.table-topline>p {
+  transform: rotate(45deg);
+  text-align: right;
+}
+
+.action-grid .organize {  
+    grid-row: 2;
+}
+
+.action-grid .perform {  
+    grid-row: 3;
+}
+
+.action-grid .pose {  
+    grid-row: 4;
+}
+
+.action-grid .perceive {  
+    grid-row: 5;
+}
+
+.action-grid .evade {  
+    grid-row: 6;
+}
+
+.action-grid .music {
+    grid-column: 2;
+}
+
+.action-grid .violence {
+    grid-column: 3;
+}
+
+.action-grid .tech {
+    grid-column: 4;
+}
+
+.action-grid .authority {
+    grid-column: 5;
+}
+
+.action-grid .minds {
+    grid-column: 6;
+}
+
+.action-grid .mojo {
+    grid-column: 7;
+}
+
+.action-grid .music:hover ~ .music > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .violence:hover ~ .violence > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .tech:hover ~ .tech > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .authority:hover ~ .authority > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .minds:hover ~ .minds > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .mojo:hover ~ .mojo > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .organize:hover ~ .organize > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .perform:hover ~ .perform > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .pose:hover ~ .pose > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .perceive:hover ~ .perceive > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.action-grid .evade:hover ~ .evade > .left-column > input[type=number] {
+  box-shadow: 0 0 15px 5px rgba(1,1,1);
+}
+
+.left-column {
+  line-height: 0px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.action-grid input[type=number] {
+  padding: 2px;
+  text-align: center;
+}
+
+.logo-cell img {
+  width: 100%;
+}
+
+/* SOLOS */
+.solo-line {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  white-space: nowrap;
+  column-gap: 15px;
+}
+
+.solo-name>input {
+/*  width: 100%;*/
+}
+
+.solo-spent {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.solo-name {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+/* RELATIONSHIPS */
+.relationship-line {
+  display: grid;
+  grid-template-columns: 2em 1fr 2em 8em;
+  column-gap: 15px;
+}
+
+.relationship-target input[type=text] {
+/*  width:75%;*/
+}
+
+.relationship-type select {
+  width:100%;
+}
+
+.relationship-line ~ select {
+/*  width:100%;*/
+}
+
+.relationship-spent {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.relationship-target {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+.relationship-strength {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+}
+
+.relationship-type {
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+}
+
+/* FAME  */
+.fame-line {
+  display: grid;
+  grid-template-columns: 2em 3fr 1fr;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.fame-line .fame-check,
+.fame-line .fame-score,
+.fame-line .fame-clock {
+  align-self: center;
+}
+.fame-line .fame-check {
+  grid-column: 1;
+  grid-row: 1;
+}
+.fame-line .fame-score {
+  grid-column: 2;
+  grid-row: 1;
+}
+.fame-line .fame-clock {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* INJURY/STRESS */
+.stress-violence-container .stress-cell {
+  grid-area: stress;
+}
+.stress-violence-container .rough-cell {
+  grid-area: rough;
+}
+.stress-violence-container .bloody-cell {
+  grid-area: bloody;
+}
+.stress-violence-container .deadly-cell {
+  grid-area: deadly;
+}
+.injury-container {
+  display: grid;
+  grid-template-areas:
+  "third-degree  clock"
+  "second-degree clock"
+  "first-degree  clock"
+  "injury-label  injury-label";
+  column-gap: 5px;
+}
+.injury-container .injury-clock {
+  grid-area: clock;
+}
+.injury-container .third-degree {
+  grid-area: third-degree;
+  text-align: right;
+}
+.injury-container .second-degree {
+  grid-area: second-degree;
+  text-align: right;
+}
+.injury-container .first-degree {
+  grid-area: first-degree;
+  text-align: right;
+}
+.injury-container .injury-label {
+  grid-area: injury-label;
+  text-align: center;
+}
+
+@media print {
+  .character-section {
+    grid-template-columns: 1fr 1fr;
+    width: 7in;
+  }
+  .logo-cell {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .action-score-cell {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+  }
+  .names-cell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .descent-cell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .roles-cell {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .fame-cell {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .riffs-cell {
+    grid-column: 2;
+    grid-row: 6;
+  }
+  .solos-cell {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .genre-cell {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  .instruments-cell {
+    grid-column: 2;
+    grid-row: 5;
+  }
+  .relationships-cell {
+    grid-column: 1;
+    grid-row: 7;
+  }
+  .stress-cell {
+    grid-column: 1;
+    grid-row: 8;
+  }
+  .violence-cell {
+    grid-column: 2;
+    grid-row: 7 / span 2;
+  }
+}
+.harm-section {
+  display: inline-block;
+  text-align: center;
+}
+
+.no-show {
+  opacity: 0;  
+}
+
+/*  CLOCK STUFF  */
+
+.clock-checkbox {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+}
+
+.clock-0 {
+  grid-area: c0;
+  align-self: center;
+}
+
+.clock-1 {
+  grid-area: c1;
+}
+.clock-2 {
+  grid-area: c2;
+}
+.clock-3{
+  grid-area: c3;
+}
+.clock-4 {
+  grid-area: c4;
+}
+.clock-5 {
+  grid-area: c5;
+}
+.clock-6 {
+  grid-area: c6;
+}
+.clock-7 {
+  grid-area: c7;
+}
+.clock-8 {
+  grid-area: c8;
+}
+
+.clock-0:checked {
+  opacity: 0;
+}
+
+/* 3-CLOCK  */
+
+.clock-container-3 {
+  display: grid;
+  grid-template-areas:
+  "c3 c3  c1  c1  c0"
+  "c3 c3  c1  c1  ww"
+  "xx c2  c2  yy  yy"
+  "xx c2  c2  yy  yy";
+  width: 5.25em;
+  height: 4em;
+}
+
+.clock-container-3 .clock {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50%;
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 4;
+  z-index: -1;
+}
+
+.clock-container-3 .clock-checkbox.clock-0:checked ~ .clock {
+  background: conic-gradient(
+    #ddd 0deg, transparent 120deg,
+    #ddd 120deg, transparent 240deg,
+    #ddd 240deg, transparent 360deg
+  );
+}
+
+.clock-container-3 .clock-checkbox.clock-1:checked ~ .clock {
+  background: conic-gradient(
+    #000 60deg, #000 120deg,
+    #ddd 120deg, transparent 240deg,
+    #ddd 240deg, transparent 360deg
+  );
+}
+
+.clock-container-3 .clock-checkbox.clock-2:checked ~ .clock {
+  background: conic-gradient(
+    black 240deg, transparent 240deg,
+    #ddd 240deg, transparent 360deg
+  );
+}
+
+.clock-container-3 .clock-checkbox.clock-3:checked ~ .clock {
+  background: conic-gradient(
+    black 360deg, transparent 360deg
+  );
+}
+
+/* 6-CLOCK */
+
+.clock-container-6 {
+  display: grid;
+/*  grid-template-columns: repeat(4, 1.25em);
+  grid-template-rows: repeat(3, 1.25em);*/
+  grid-template-areas:
+  "c6   xx  c1  c0"
+  "c5   xx  c2  yy"
+  "c4   xx  c3  yy";
+  width: 5em;
+  height: 3.75em;
+}
+
+.clock-container-6 .clock {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50%;
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 3;
+  z-index: -1;
+}
+
+.clock-container-6 .clock-checkbox.clock-0:checked ~ .clock {
+  background: conic-gradient(
+    #ddd 0deg, transparent 60deg,
+    #ddd 60deg, transparent 120deg,
+    #ddd 120deg, transparent 180deg,
+    #ddd 180deg, transparent 240deg,
+    #ddd 240deg, transparent 300deg,
+    #ddd 300deg, transparent 360deg
+  );
+}
+
+.clock-container-6 .clock-checkbox.clock-1:checked ~ .clock {
+  background: conic-gradient(
+    #000 60deg, #000 60deg,
+    #ddd 60deg, transparent 120deg,
+    #ddd 120deg, transparent 180deg,
+    #ddd 180deg, transparent 240deg,
+    #ddd 240deg, transparent 300deg,
+    #ddd 300deg, transparent 360deg
+  );
+}
+
+.clock-container-6 .clock-checkbox.clock-2:checked ~ .clock {
+  background: conic-gradient(
+    black 120deg, transparent 120deg,
+    #ddd 120deg, transparent 180deg,
+    #ddd 180deg, transparent 240deg,
+    #ddd 240deg, transparent 300deg,
+    #ddd 300deg, transparent 360deg
+  );
+}
+
+.clock-container-6 .clock-checkbox.clock-3:checked ~ .clock {
+  background: conic-gradient(
+    black 180deg, transparent 180deg,
+    #ddd 180deg, transparent 240deg,
+    #ddd 240deg, transparent 300deg,
+    #ddd 300deg, transparent 360deg
+  );
+}
+
+.clock-container-6 .clock-checkbox.clock-4:checked ~ .clock {
+  background: conic-gradient(
+    black 240deg, transparent 240deg,
+    #ddd 240deg, transparent 300deg,
+    #ddd 300deg, transparent 360deg
+  );
+}
+
+.clock-container-6 .clock-checkbox.clock-5:checked ~ .clock {
+  background: conic-gradient(
+    black 300deg, transparent 300deg,
+    #ddd 300deg, transparent 360deg
+  );
+}
+
+.clock-container-6 .clock-checkbox.clock-6:checked ~ .clock {
+  background: conic-gradient(
+    black 360deg, transparent 360deg
+  );
+}
+
+/* 8-CLOCK */
+
+.clock-container-8 {
+  display: grid;
+/*  grid-template-columns: repeat(5, 1em);
+  grid-template-rows: repeat(4, 1em);  */
+  grid-template-areas:
+  " ww  c8  c1  xx  c0"
+  " c7  yy  yy  c2  zz"
+  " c6  yy  yy  c3  zz"
+  " aa  c5  c4  bb  zz"
+  ;
+  width: 5em;
+  height: 4em;
+}
+
+.clock-container-8 .clock {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50%;
+/*   border: 2px solid black; */
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 4;
+  z-index: -1;
+}
+
+.clock-container-8 .clock-checkbox.clock-0:checked ~ .clock {
+  background: conic-gradient(
+    #ddd 0deg, transparent 45deg,
+    #ddd 45deg, transparent 90deg,
+    #ddd 90deg, transparent 135deg,
+    #ddd 135deg, transparent 180deg,
+    #ddd 180deg, transparent 225deg,
+    #ddd 225deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-1:checked ~ .clock {
+  background: conic-gradient(
+    #000 45deg, #000 45deg,
+    #ddd 45deg, transparent 90deg,
+    #ddd 90deg, transparent 135deg,
+    #ddd 135deg, transparent 180deg,
+    #ddd 180deg, transparent 225deg,
+    #ddd 225deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-2:checked ~ .clock {
+  background: conic-gradient(
+    #000 90deg, transparent 90deg,
+    #ddd 90deg, transparent 135deg,
+    #ddd 135deg, transparent 180deg,
+    #ddd 180deg, transparent 225deg,
+    #ddd 225deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-3:checked ~ .clock {
+  background: conic-gradient(
+    black 135deg, transparent 135deg,
+    #ddd 135deg, transparent 180deg,
+    #ddd 180deg, transparent 225deg,
+    #ddd 225deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-4:checked ~ .clock {
+  background: conic-gradient(
+    black 180deg, transparent 180deg,
+    #ddd 180deg, transparent 225deg,
+    #ddd 225deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-5:checked ~ .clock {
+  background: conic-gradient(
+    black 225deg, transparent 225deg,
+    #ddd 225deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-6:checked ~ .clock {
+  background: conic-gradient(
+    black 270deg, transparent 270deg,
+    #ddd 270deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-7:checked ~ .clock {
+  background: conic-gradient(
+    black 315deg, transparent 315deg,
+    #ddd 315deg, transparent 360deg
+  );
+}
+
+.clock-container-8 .clock-checkbox.clock-8:checked ~ .clock {
+  background: conic-gradient(
+    black 360deg, transparent 360deg
+  );
+}
