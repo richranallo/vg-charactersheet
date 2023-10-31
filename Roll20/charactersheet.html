@@ -4,509 +4,1355 @@
     <link rel="stylesheet" href="charactersheet.css">
   </head>
   <body>
+    <input type="hidden" class="sheet-toggle" name="attr_sheet-type"  value="character"  /> 
     <div class="header-section">
       <div class="logo-cell">
-          LOGO
+        <img src="https://raw.githubusercontent.com/richranallo/vg-charactersheet/71d9512f0767ecd57ee8d9aa5cd3676bb1e37f00/img/wordmark2_clean_star3.svg"/>
       </div>
       <div class="sheet-type-cell">
-        TYPE
+        <h2>
+          <select class="full dropdown" name="attr_sheet-type">
+            <option value="character" class="character-section-select" selected>Character</option>
+            <option value="band" class="band-section-select">Band</option>
+            <option value="revolution" class="revolution-section-select">Revolution</option>
+          </select>
+        </h2>
       </div>
     </div>
-    <div class="character-section">
-      <div class="names-cell">
-        <h2> Names </h2>
-        <fieldset class="repeating_names">
-          <input class="full name" name="attr_name" type="text" placeholder="Name/pronouns"/>
-        </fieldset>
-      </div>
-      <div class="descent-cell">
-        <h2> Descent </h2>
-        <select class="full dropdown" name="attr_decent">
-          <option value="earthling">Earthling</option>
-          <option value="starchild">Starchild</option>
-        </select>
-      </div>
-      <div class="roles-cell">
-        <h2> Roles </h2>
-        <fieldset class="repeating_roles">
-          <select class="full dropdown" name="attr_role1">
-            <option></option>
-            <option value="diva">Diva</option>
-            <option value="virtuoso">Virtuoso</option>
-            <option value="backbeat">Backbeat</option>
-            <option value="synth-wizard">Synth Wizard</option>
-            <option value="roadie">Roadie</option>
-            <option value="suit">Suit</option>
-            <option value="firebrand">Firebrand</option>
-            <option value="criminal">Criminal</option>
-            <option value="journalist">Journalist</option>
-            <option value="muscle">Muscle</option>
+    <div class="character-tab">
+      <div class="character-section">
+        <div class="names-cell">
+          <h2> Names </h2>
+          <fieldset class="repeating_names">
+            <input class="full name" name="attr_name" type="text" placeholder="Name/pronouns"/>
+          </fieldset>
+        </div>
+        <div class="descent-cell">
+          <h2> Descent </h2>
+          <select class="full dropdown" name="attr_decent">
+            <option value="earthling">Earthling</option>
+            <option value="starchild">Starchild</option>
           </select>
-        </fieldset>
-      </div>
-      <div class="fame-cell">
-        <h2>Fame</h2>
-        <input type="hidden" name="attr_fameIndex" value="3"/>
-        <div class="fame-line">
-          <div class="fame-check">
-            <input type="checkbox" class="bubble" name="attr_fameExpended" value="1"/>
+        </div>
+        <div class="roles-cell">
+          <h2> Roles </h2>
+          <fieldset class="repeating_roles">
+            <select class="full dropdown" name="attr_role1">
+              <option></option>
+              <option value="diva">Diva</option>
+              <option value="virtuoso">Virtuoso</option>
+              <option value="backbeat">Backbeat</option>
+              <option value="synth-wizard">Synth Wizard</option>
+              <option value="roadie">Roadie</option>
+              <option value="suit">Suit</option>
+              <option value="firebrand">Firebrand</option>
+              <option value="criminal">Criminal</option>
+              <option value="journalist">Journalist</option>
+              <option value="muscle">Muscle</option>
+            </select>
+          </fieldset>
+        </div>
+        <div class="fame-cell">
+          <h2>Fame</h2>
+          <div class="fame-line">
+            <div class="fame-check">
+              <input type="checkbox" class="bubble" name="attr_fameExpended" value="1"/>
+            </div>
+            <div class="fame-score">
+              <input type="number" name="attr_fameWidth" min="2" max="6" class="score" value="ceil(@{fameIndex}/5)+1" />
+              ☆
+              <input type="number" name="attr_fameheight" min="2" max="6" class="score" value="(@{fameIndex}-1)%5+2" />
+            </div>
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_fameCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
           </div>
-          <div class="fame-score">
-            <input type="number" name="attr_fameWidth" min="2" max="6" class="score" value="ceil(@{fameIndex}/5)+1" />
-            ☆
-            <input type="number" name="attr_fameheight" min="2" max="6" class="score" value="(@{fameIndex}-1)%5+2" />
+        </div>
+        <div class="action-score-cell">
+          <h2> Action Scores </h2><br/><br/>
+          <div class="action-grid">
+            <div></div>
+            <div class="organize music">
+              <input type="checkbox" name="attr_organizeMusic" value="1" class="bubble" />
+            </div>
+            <div class="organize violence">
+              <input type="checkbox" name="attr_organizeViolence" value="1" class="bubble" />
+            </div>
+            <div class="organize tech">
+              <input type="checkbox" name="attr_organizeTech" value="1" class="bubble" />
+            </div>
+            <div class="organize authority">
+              <input type="checkbox" name="attr_organizeAuthority" value="1" class="bubble" />
+            </div>
+            <div class="organize minds">
+              <input type="checkbox" name="attr_organizeMinds" value="1" checked="true" disabled="true" class="bubble" />
+            </div>
+            <div class="organize mojo">
+              <input type="checkbox" name="attr_organizeMojo" value="1" class="bubble" />
+            </div>
+
+            <div class="perform music">
+              <input type="checkbox" name="attr_performMusic" value="1" class="bubble" />
+            </div>
+            <div class="perform violence">
+              <input type="checkbox" name="attr_performViolence" value="1" class="bubble" />
+            </div>
+            <div class="perform tech">
+              <input type="checkbox" name="attr_performTech" value="1" class="bubble" />
+            </div>
+            <div class="perform authority">
+              <input type="checkbox" name="attr_performAuthority" value="1" checked="true" disabled="true" class="bubble" />
+            </div>
+            <div class="perform minds">
+              <input type="checkbox" name="attr_performMinds" value="1" class="bubble" />
+            </div>
+            <div class="perform mojo">
+              <input type="checkbox" name="attr_performMojo" value="1" class="bubble" />
+            </div>
+
+            <div class="pose music">
+              <input type="checkbox" name="attr_poseMusic" value="1" class="bubble" />
+            </div>
+            <div class="pose violence">
+              <input type="checkbox" name="attr_poseViolence" value="1" class="bubble" />
+            </div>
+            <div class="pose tech">
+              <input type="checkbox" name="attr_poseTech" value="1" checked="true" disabled="true" class="bubble" />
+            </div>
+            <div class="pose authority">
+              <input type="checkbox" name="attr_poseAuthority" value="1" class="bubble" />
+            </div>
+            <div class="pose minds">
+              <input type="checkbox" name="attr_poseMinds" value="1" class="bubble" />
+            </div>
+            <div class="pose mojo">
+              <input type="checkbox" name="attr_poseMojo" value="1" class="bubble" />
+            </div>
+
+            <div class="perceive music">
+              <input type="checkbox" name="attr_perceiveMusic" value="1" class="bubble" />
+            </div>
+            <div class="perceive violence">
+              <input type="checkbox" name="attr_perceiveViolence" value="1" checked="true" disabled="true" class="bubble" />
+            </div>
+            <div class="perceive tech">
+              <input type="checkbox" name="attr_perceiveTech" value="1" class="bubble" />
+            </div>
+            <div class="perceive authority">
+              <input type="checkbox" name="attr_perceiveAuthority" value="1" class="bubble" />
+            </div>
+            <div class="perceive minds">
+              <input type="checkbox" name="attr_perceiveMinds" value="1" class="bubble" />
+            </div>
+            <div class="perceive mojo">
+              <input type="checkbox" name="attr_perceiveMojo" value="1" class="bubble" />
+            </div>
+
+            <div class="evade music">
+              <input type="checkbox" name="attr_evadeMusic" value="1" checked="true" disabled="true" class="bubble" />
+            </div>
+            <div class="evade violence">
+              <input type="checkbox" name="attr_evadeViolence" value="1" class="bubble" />
+            </div>
+            <div class="evade tech">
+              <input type="checkbox" name="attr_evadeTech" value="1" class="bubble" />
+            </div>
+            <div class="evade authority">
+              <input type="checkbox" name="attr_evadeAuthority" value="1" class="bubble" />
+            </div>
+            <div class="evade minds">
+              <input type="checkbox" name="attr_evadeMinds" value="1" class="bubble" />
+            </div>
+            <div class="evade mojo">
+              <input type="checkbox" name="attr_evadeMojo" value="1" class="bubble" />
+            </div>
+
+            <div class="table-topline music">
+              <p>Music</p>
+              <!-- <span name="attr_music"></span> -->
+              <input type="number" class="score" name="attr_music" value="(@{organizeMusic}+@{performMusic}+@{poseMusic}+@{evadeMusic}+@{perceiveMusic})" disabled="true"/>
+            </div>
+            <div class="table-topline violence">
+              <p>Violence</p>
+              <input type="number" name="attr_violence" class="score" value="@{organizeViolence}+@{performViolence}+@{poseViolence}+@{evadeViolence}+@{perceiveViolence}" disabled="true"/>
+            </div>
+            <div class="table-topline tech">
+              <p>Tech</p>
+              <input type="number" name="attr_tech" class="score" value="@{organizeTech}+@{performTech}+@{poseTech}+@{evadeTech}+@{perceiveTech}" disabled="true"/>
+            </div>
+            <div class="table-topline authority">
+              <p>Authority</p>
+              <input type="number" name="attr_authority" class="score" value="@{organizeAuthority}+@{performAuthority}+@{poseAuthority}+@{evadeAuthority}+@{perceiveAuthority}" disabled="true"/>
+            </div>
+            <div class="table-topline minds">
+              <p>Minds</p>
+              <input type="number" name="attr_minds" class="score" value="@{organizeMinds}+@{performMinds}+@{poseMinds}+@{evadeMinds}+@{perceiveMinds}" disabled="true"/>
+            </div>
+            <div class="table-topline mojo">
+              <p>Mojo</p>
+              <input type="number" name="attr_mojo" class="score" value="@{organizeMojo}+@{performMojo}+@{poseMojo}+@{evadeMojo}+@{perceiveMojo}" disabled="true"/>
+            </div>
+            <div class="left-column organize">
+              <p class="left-column">Organize&nbsp;<input type="number" name="attr_organize" class="score" value="@{organizeMusic}+@{organizeViolence}+@{organizeTech}+@{organizeAuthority}+@{organizeMinds}+@{organizeMojo}" disabled="true"/></p>
+            </div>
+            <div class="left-column perform">
+              <p class="left-column">Perform&nbsp;
+              <input type="number" name="attr_perform" class="score" value="@{performMusic}+@{performViolence}+@{performTech}+@{performAuthority}+@{performMinds}+@{performMojo}" disabled="true"/></p>
+            </div>
+            <div class="left-column pose">
+              <p class="left-column">Pose&nbsp;
+              <input type="number" name="attr_pose" class="score" value="@{poseMusic}+@{poseViolence}+@{poseTech}+@{poseAuthority}+@{poseMinds}+@{poseMojo}" disabled="true"/></p>
+            </div>
+            <div class="left-column perceive">
+              <p class="left-column">Perceive&nbsp;
+              <input type="number" name="attr_perceive" class="score" value="@{perceiveMusic}+@{perceiveViolence}+@{perceiveTech}+@{perceiveAuthority}+@{perceiveMinds}+@{perceiveMojo}" disabled="true"/></p>
+            </div>
+            <div class="left-column evade">
+              <p class="left-column">Evade&nbsp;
+              <input type="number" name="attr_evade" class="score" value="@{evadeMusic}+@{evadeViolence}+@{evadeTech}+@{evadeAuthority}+@{evadeMinds}+@{evadeMojo}" disabled="true"/></p>
+            </div>
           </div>
-          <div class="clock-container-8">
-            <input
-               type="radio"
-               value="0"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-0" checked/>
-            <input
-               type="radio"
-               value="1"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-1 no-show"/>
-            <input
-               type="radio"
-               value="2"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-2 no-show"/>
-            <input
-               type="radio"
-               value="3"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-3 no-show"/>
-            <input
-               type="radio"
-               value="4"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-4 no-show"/>
-            <input
-               type="radio"
-               value="5"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-5 no-show"/>
-            <input
-               type="radio"
-               value="6"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-6 no-show"/>
-            <input
-               type="radio"
-               value="7"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-7 no-show"/>
-            <input
-               type="radio"
-               value="8"
-               name="attr_fameCheck"
-               class="clock-checkbox clock-8 no-show"/>
-            <div class="clock"></div>
+        </div>
+        <div class="genre-cell">
+          <h2> Genre/Rep </h2>
+          <fieldset class="repeating_genre">
+            <input class="full" name="attr_genre1" type="text"/>
+          </fieldset>
+        </div>
+        <div class="instruments-cell">
+          <h2> Instruments/Styles </h2>
+          <fieldset class="repeating_instruments">
+            <div class="instrument-line">
+              <input class="full" name="attr_instrument" type="text"/>
+            </div>
+          </fieldset>
+        </div>
+        <div class="riffs-cell">
+          <h2> Riffs </h2>
+          <fieldset class="repeating_riffs">
+            <div class="riff-line">
+              <input class="full" name="attr_riff" type="text"/>
+            </div>          
+          </fieldset>
+        </div>
+        <div class="solos-cell">
+          <h2> Solos </h2>
+          <fieldset class="repeating_solos">
+            <div class="solo-line">
+              <div class="solo-spent">
+              <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>
+              </div>
+              <div class="solo-name">
+                <input name="attr_solo" class="full" type="text"/>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="relationships-cell">
+          <h2> Relationships </h2>
+          <fieldset class="repeating_relationships">
+            <div class="relationship-line">
+              <div class="relationship-spent">
+                <input type="checkbox" name="attr_relationshipSpent" class="bubble" value="1"/>
+              </div>
+              <div class="relationship-target">
+                <input type="text" class="full" name="attr_relationshipCharacter"/>
+              </div>
+              <div class="relationship-strength">
+                <input type="number" min="2" max="6" name="attr_relationshipStrength" class="full"/>
+              </div>
+              <div class="relationship-type">
+                <select name="attr_relationshipType" class="full">
+                  <option value="friendship">Friendship</option>
+                  <option value="love">Love</option>
+                  <option value="rivalry">Rivalry</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="stress-violence-cell">
+          <h2>
+            Stress & Injury
+          </h2>
+          <div class="injury-limit">
+            <h3>
+              Injury Limit: <input type="number" class="score" name="attr_injuryLimitWidth" value="2">☆<input type="number" class="score" name="attr_violence" value="2">
+            </h3>
+          </div>
+          <div class="stress-violence-container">
+            <div class="stress-cell">
+              <div class="injury-container">
+                <div class="injury-clock">
+                  <div class="clock-container-3">
+                    <input type="radio" value="0" name="attr_stress" class="clock-checkbox clock-checkbox clock-0" checked/>
+                    <input type="radio" value="2" name="attr_stress" class="clock-checkbox clock-checkbox clock-1 no-show"/>
+                    <input type="radio" value="4" name="attr_stress" class="clock-checkbox clock-checkbox clock-2 no-show"/>
+                    <input type="radio" value="6" name="attr_stress" class="clock-checkbox clock-checkbox clock-3 no-show"/>
+                    <div class="clock"></div>
+                  </div>
+                </div>
+                <div class="third-degree">
+                  Exhausted
+                </div>
+                <div class="injury-label">
+                  <h3>Stress</h3>
+                </div>
+              </div>
+            </div>
+            <div class="rough-cell">
+              <div class="injury-container">
+                <div class="injury-clock">
+                  <div class="clock-container-6">
+                    <input
+                       type="radio"
+                       value="0"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-0" checked/>
+                    <input
+                       type="radio"
+                       value="1"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-1 no-show"/>
+                    <input
+                       type="radio"
+                       value="2"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-2 no-show"/>
+                    <input
+                       type="radio"
+                       value="3"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-3 no-show"/>
+                    <input
+                       type="radio"
+                       value="4"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-4 no-show"/>
+                    <input
+                       type="radio"
+                       value="5"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-5 no-show"/>
+                    <input
+                       type="radio"
+                       value="6"
+                       name="attr_roughDamage"
+                       class="clock-checkbox clock-6 no-show"/>
+                    <div class="clock"></div>
+                  </div>
+                </div>
+                <div class="third-degree">
+                  Out
+                </div>
+                <div class="second-degree">
+                  Cowed
+                </div>
+                <div class="first-degree">
+                  Timid
+                </div>
+                <div class="injury-label">
+                  <h3>Rough</h3>
+                </div>
+              </div>
+            </div>
+            <div class="bloody-cell">
+              <div class="injury-container">
+                <div class="injury-clock">
+                  <div class="clock-container-6">
+                    <input
+                       type="radio"
+                       value="0"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-0" checked/>
+                    <input
+                       type="radio"
+                       value="1"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-1 no-show"/>
+                    <input
+                       type="radio"
+                       value="2"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-2 no-show"/>
+                    <input
+                       type="radio"
+                       value="3"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-3 no-show"/>
+                    <input
+                       type="radio"
+                       value="4"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-4 no-show"/>
+                    <input
+                       type="radio"
+                       value="5"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-5 no-show"/>
+                    <input
+                       type="radio"
+                       value="6"
+                       name="attr_bloodyDamage"
+                       class="clock-checkbox clock-6 no-show"/>
+                    <div class="clock"></div>
+                  </div>
+                </div>
+                <div class="third-degree">
+                  Out
+                </div>
+                <div class="second-degree">
+                  Cowed
+                </div>
+                <div class="first-degree">
+                  Timid
+                </div>
+                <div class="injury-label">
+                  <h3>Bloody</h3>
+                </div>
+              </div>
+            </div>
+            <div class="deadly-cell">
+              <div class="injury-container">
+                <div class="injury-clock">
+                  <div class="clock-container-6">
+                    <input
+                       type="radio"
+                       value="0"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-0" checked/>
+                    <input
+                       type="radio"
+                       value="1"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-1 no-show"/>
+                    <input
+                       type="radio"
+                       value="2"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-2 no-show"/>
+                    <input
+                       type="radio"
+                       value="3"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-3 no-show"/>
+                    <input
+                       type="radio"
+                       value="4"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-4 no-show"/>
+                    <input
+                       type="radio"
+                       value="5"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-5 no-show"/>
+                    <input
+                       type="radio"
+                       value="6"
+                       name="attr_deadlyDamage"
+                       class="clock-checkbox clock-6 no-show"/>
+                    <div class="clock"></div>
+                  </div>
+                </div>
+                <div class="third-degree">
+                  Out
+                </div>
+                <div class="second-degree">
+                  Cowed
+                </div>
+                <div class="first-degree">
+                  Timid
+                </div>
+                <div class="injury-label">
+                  <h3>Deadly</h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="action-score-cell">
-        <h2> Action Scores </h2><br/><br/>
-        <div class="action-grid">
-          <div></div>
-          <div class="organize music">
-            <input type="checkbox" name="attr_organizeMusic" value="1" class="bubble" />
-          </div>
-          <div class="organize violence">
-            <input type="checkbox" name="attr_organizeViolence" value="1" class="bubble" />
-          </div>
-          <div class="organize tech">
-            <input type="checkbox" name="attr_organizeTech" value="1" class="bubble" />
-          </div>
-          <div class="organize authority">
-            <input type="checkbox" name="attr_organizeAuthority" value="1" class="bubble" />
-          </div>
-          <div class="organize minds">
-            <input type="checkbox" name="attr_organizeMinds" value="1" checked="true" disabled="true" class="bubble" />
-          </div>
-          <div class="organize mojo">
-            <input type="checkbox" name="attr_organizeMojo" value="1" class="bubble" />
-          </div>
-
-          <div class="perform music">
-            <input type="checkbox" name="attr_performMusic" value="1" class="bubble" />
-          </div>
-          <div class="perform violence">
-            <input type="checkbox" name="attr_performViolence" value="1" class="bubble" />
-          </div>
-          <div class="perform tech">
-            <input type="checkbox" name="attr_performTech" value="1" class="bubble" />
-          </div>
-          <div class="perform authority">
-            <input type="checkbox" name="attr_performAuthority" value="1" checked="true" disabled="true" class="bubble" />
-          </div>
-          <div class="perform minds">
-            <input type="checkbox" name="attr_performMinds" value="1" class="bubble" />
-          </div>
-          <div class="perform mojo">
-            <input type="checkbox" name="attr_performMojo" value="1" class="bubble" />
-          </div>
-
-          <div class="pose music">
-            <input type="checkbox" name="attr_poseMusic" value="1" class="bubble" />
-          </div>
-          <div class="pose violence">
-            <input type="checkbox" name="attr_poseViolence" value="1" class="bubble" />
-          </div>
-          <div class="pose tech">
-            <input type="checkbox" name="attr_poseTech" value="1" checked="true" disabled="true" class="bubble" />
-          </div>
-          <div class="pose authority">
-            <input type="checkbox" name="attr_poseAuthority" value="1" class="bubble" />
-          </div>
-          <div class="pose minds">
-            <input type="checkbox" name="attr_poseMinds" value="1" class="bubble" />
-          </div>
-          <div class="pose mojo">
-            <input type="checkbox" name="attr_poseMojo" value="1" class="bubble" />
-          </div>
-
-          <div class="perceive music">
-            <input type="checkbox" name="attr_perceiveMusic" value="1" class="bubble" />
-          </div>
-          <div class="perceive violence">
-            <input type="checkbox" name="attr_perceiveViolence" value="1" checked="true" disabled="true" class="bubble" />
-          </div>
-          <div class="perceive tech">
-            <input type="checkbox" name="attr_perceiveTech" value="1" class="bubble" />
-          </div>
-          <div class="perceive authority">
-            <input type="checkbox" name="attr_perceiveAuthority" value="1" class="bubble" />
-          </div>
-          <div class="perceive minds">
-            <input type="checkbox" name="attr_perceiveMinds" value="1" class="bubble" />
-          </div>
-          <div class="perceive mojo">
-            <input type="checkbox" name="attr_perceiveMojo" value="1" class="bubble" />
-          </div>
-
-          <div class="evade music">
-            <input type="checkbox" name="attr_evadeMusic" value="1" checked="true" disabled="true" class="bubble" />
-          </div>
-          <div class="evade violence">
-            <input type="checkbox" name="attr_evadeViolence" value="1" class="bubble" />
-          </div>
-          <div class="evade tech">
-            <input type="checkbox" name="attr_evadeTech" value="1" class="bubble" />
-          </div>
-          <div class="evade authority">
-            <input type="checkbox" name="attr_evadeAuthority" value="1" class="bubble" />
-          </div>
-          <div class="evade minds">
-            <input type="checkbox" name="attr_evadeMinds" value="1" class="bubble" />
-          </div>
-          <div class="evade mojo">
-            <input type="checkbox" name="attr_evadeMojo" value="1" class="bubble" />
-          </div>
-
-          <div class="table-topline music">
-            <p>Music</p>
-            <!-- <span name="attr_music"></span> -->
-            <input type="number" class="score" name="attr_music" value="(@{organizeMusic}+@{performMusic}+@{poseMusic}+@{evadeMusic}+@{perceiveMusic})" disabled="true"/>
-          </div>
-          <div class="table-topline violence">
-            <p>Violence</p>
-            <input type="number" name="attr_violence" class="score" value="@{organizeViolence}+@{performViolence}+@{poseViolence}+@{evadeViolence}+@{perceiveViolence}" disabled="true"/>
-          </div>
-          <div class="table-topline tech">
-            <p>Tech</p>
-            <input type="number" name="attr_tech" class="score" value="@{organizeTech}+@{performTech}+@{poseTech}+@{evadeTech}+@{perceiveTech}" disabled="true"/>
-          </div>
-          <div class="table-topline authority">
-            <p>Authority</p>
-            <input type="number" name="attr_authority" class="score" value="@{organizeAuthority}+@{performAuthority}+@{poseAuthority}+@{evadeAuthority}+@{perceiveAuthority}" disabled="true"/>
-          </div>
-          <div class="table-topline minds">
-            <p>Minds</p>
-            <input type="number" name="attr_minds" class="score" value="@{organizeMinds}+@{performMinds}+@{poseMinds}+@{evadeMinds}+@{perceiveMinds}" disabled="true"/>
-          </div>
-          <div class="table-topline mojo">
-            <p>Mojo</p>
-            <input type="number" name="attr_mojo" class="score" value="@{organizeMojo}+@{performMojo}+@{poseMojo}+@{evadeMojo}+@{perceiveMojo}" disabled="true"/>
-          </div>
-          <div class="left-column organize">
-            <p class="left-column">Organize&nbsp;<input type="number" name="attr_organize" class="score" value="@{organizeMusic}+@{organizeViolence}+@{organizeTech}+@{organizeAuthority}+@{organizeMinds}+@{organizeMojo}" disabled="true"/></p>
-          </div>
-          <div class="left-column perform">
-            <p class="left-column">Perform&nbsp;
-            <input type="number" name="attr_perform" class="score" value="@{performMusic}+@{performViolence}+@{performTech}+@{performAuthority}+@{performMinds}+@{performMojo}" disabled="true"/></p>
-          </div>
-          <div class="left-column pose">
-            <p class="left-column">Pose&nbsp;
-            <input type="number" name="attr_pose" class="score" value="@{poseMusic}+@{poseViolence}+@{poseTech}+@{poseAuthority}+@{poseMinds}+@{poseMojo}" disabled="true"/></p>
-          </div>
-          <div class="left-column perceive">
-            <p class="left-column">Perceive&nbsp;
-            <input type="number" name="attr_perceive" class="score" value="@{perceiveMusic}+@{perceiveViolence}+@{perceiveTech}+@{perceiveAuthority}+@{perceiveMinds}+@{perceiveMojo}" disabled="true"/></p>
-          </div>
-          <div class="left-column evade">
-            <p class="left-column">Evade&nbsp;
-            <input type="number" name="attr_evade" class="score" value="@{evadeMusic}+@{evadeViolence}+@{evadeTech}+@{evadeAuthority}+@{evadeMinds}+@{evadeMojo}" disabled="true"/></p>
+    </div>
+    <div class="band-tab">
+      <div class="band-section">
+        <div class="band-name">
+          <h2>Name</h2>
+          <input class="full name" name="attr_name" type="text"/>
+        </div>
+        <div class="band-genre">
+          <h2>Genre</h2>
+          <fieldset class="repeating_genres">
+            <input class="full" name="attr_genre" type="text"/>
+          </fieldset>
+        </div>
+        <div class="band-fame">
+          <h2>Fame</h2>
+          <div class="band-fame-line">
+            <div class="fame-score">
+              <input type="number" name="attr_bandFameWidth" min="2" max="6" class="score" value="ceil(@{fameIndex}/5)+1" />
+              ☆
+              <input type="number" name="attr_bandFameHeight" min="2" max="6" class="score" value="(@{fameIndex}-1)%5+2" />
+            </div>
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_bandFameCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="genre-cell">
-        <h2> Genre/Rep </h2>
-        <fieldset class="repeating_genre">
-          <input class="full" name="attr_genre1" type="text"/>
-        </fieldset>
-      </div>
-      <div class="instruments-cell">
-        <h2> Instruments/Styles </h2>
-        <fieldset class="repeating_instruments">
-          <div class="instrument-line">
-            <input class="full" name="attr_instrument" type="text"/>
+        <div class="band-heat">
+          <h2>Heat</h2>
+          <div class="band-fame-line">
+            <div class="fame-score">
+              <input type="number" name="attr_heatWidth" min="2" max="6" class="score" />
+              ☆
+              <input type="number" name="attr_heatHeight" min="2" max="6" class="score" />
+            </div>
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_heatCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
           </div>
-        </fieldset>
+        </div>
+        <div class="band-scene">
+          <h2>Scene</h2>
+          <div class="band-scene-container">
+            <p class="title fame">
+              Fame
+            </p>
+            <p class="title level">
+              Level
+            </p>
+            <p class="title scene">
+              Scene
+            </p>
+            <p class="dims fame">2☆2</p>
+            <p class="city fame">3☆2</p>
+            <p class="region fame">4☆2</p>
+            <p class="nation fame">5☆2</p>
+            <p class="global fame">6☆2</p>
+
+            <p class="dims level">Dims</p>
+            <p class="city level">City</p>
+            <p class="region level">Region</p>
+            <p class="nation level">Nation</p>
+            <p class="global level">Global</p>
+
+            <input type="text" name="attr_dimsSceneLevel" class="dims scene"/>
+            <input type="text" name="attr_citySceneLevel" class="city scene"/>
+            <input type="text" name="attr_regionSceneLevel" class="region scene"/>
+            <input type="text" name="attr_nationSceneLevel" class="nation scene"/>
+
+            <input class="global check bubble scene-check" type="checkbox" name="attr_scene" value="5">
+            <input class="nation check bubble scene-check" type="checkbox" name="attr_scene" value="4">
+            <input class="region check bubble scene-check" type="checkbox" name="attr_scene" value="3">
+            <input class="city check bubble scene-check" type="checkbox" name="attr_scene" value="2">
+            <input class="dims check bubble scene-check" type="checkbox" name="attr_scene" value="1">
+          </div>
+        </div>
+        <div class="band-faction-status">
+          <h2>Faction Status</h2>
+          <div class="faction-status-container">
+            <div class="velvet">
+              <h3>Velvet</h3>
+            </div>
+            <div class="cobalt">
+              <h3>Cobalt Army</h3>
+            </div>
+            <div class="velvet5">
+              Legend
+            </div>
+            <div class="velvet4">
+              Handler
+            </div>
+            <div class="velvet3">
+              Recruiter
+            </div>
+            <div class="velvet2">
+              Cell Leader
+            </div>
+            <div class="velvet1">
+              Recruit
+            </div>
+            <div class="cobalt5">
+              Ungovernable
+            </div>
+            <div class="cobalt4">
+              Provocateur
+            </div>
+            <div class="cobalt3">
+              Known Threat
+            </div>
+            <div class="cobalt2">
+              Cell Leader
+            </div>
+            <div class="cobalt1">
+              Recruit
+            </div>
+            <input class="velvet-status bubble velvetcheck5" type="checkbox" name="attr_velvetStatus" value="5">
+            <input class="velvet-status bubble velvetcheck4" type="checkbox" name="attr_velvetStatus" value="4">
+            <input class="velvet-status bubble velvetcheck3" type="checkbox" name="attr_velvetStatus" value="3">
+            <input class="velvet-status bubble velvetcheck2" type="checkbox" name="attr_velvetStatus" value="2">
+            <input class="velvet-status bubble velvetcheck1" type="checkbox" name="attr_velvetStatus" value="1">
+            <input class="cobalt-status bubble cobaltcheck5" type="checkbox" name="attr_cobaltStatus" value="5">
+            <input class="cobalt-status bubble cobaltcheck4" type="checkbox" name="attr_cobaltStatus" value="4">
+            <input class="cobalt-status bubble cobaltcheck3" type="checkbox" name="attr_cobaltStatus" value="3">
+            <input class="cobalt-status bubble cobaltcheck2" type="checkbox" name="attr_cobaltStatus" value="2">
+            <input class="cobalt-status bubble cobaltcheck1" type="checkbox" name="attr_cobaltStatus" value="1">
+          </div>
+        </div>
+        <div class="band-sister-cells">
+          <h2>Sister Cells</h2>
+          <fieldset class="repeating_sister-cells">
+            <input class="full" name="attr_sisterCell" type="text"/>
+          </fieldset>
+        </div>
+        <div class="band-connections">
+          <h2>Connections</h2>
+          <fieldset class="repeating_connections">
+            <input class="full" name="attr_connection" type="text"/>
+          </fieldset>
+        </div>
+        <div class="band-assets">
+          <h2>Assets</h2>
+          <div class="asset-container">
+            <fieldset class="repeating_assets">
+            <input type="hidden" class="active-asset" name="attr_asset-type"/> 
+              <h3>
+                <select class="asset-selector full" name="attr_asset-type">
+                  <option value=""></option>
+                  <option value="vehicle">Vehicle</option>
+                  <option value="musicSpace">Music Space</option>
+                  <option value="hideout">Hideout</option>
+                  <option value="crimeLab">Crime Lab</option>
+                  <option value="community">Community</option>
+                  <option value="network">Network</option>
+                </select>
+              </h3>
+              <div class="vehicle-options">
+                <label>
+                  <input class="bubble" type="checkbox" value="fast"/>
+                  Fast
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="subtle"/>
+                  Subtle
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="maneuverable"/>
+                  Maneuverable
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="smugglerWagon"/>
+                  Smuggler Wagon
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="durable"/>
+                  Durable
+                </label>
+              </div>
+              <div class="music-space-options">
+                <label>
+                  <input class="bubble" type="checkbox" value="venue"/>
+                  Venue
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="recordingStudio"/>
+                  Recording Studio
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="infamous"/>
+                  Infamous
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="stagingLocation"/>
+                  Staging Location
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="big"/>
+                  Big
+                </label>
+              </div>
+              <div class="hideout-options">
+                <label>
+                  <input class="bubble" type="checkbox" value="luxury"/>
+                  Luxury
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="medicalBay"/>
+                  Medical Bay
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="library"/>
+                  Library
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="safeHarbor"/>
+                  Safe Harbor
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="workshop"/>
+                  Workshop
+                </label>
+              </div>
+              <div class="crime-lab-options">
+                <label>
+                  <input class="bubble" type="checkbox" value="pharmaLab"/>
+                  Pharma Lab
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="armory"/>
+                  Armory
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="ids"/>
+                  IDs
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="electronics"/>
+                  Electronics
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="distributedSystems"/>
+                  Distributed Systems
+                </label>
+              </div>
+              <div class="community-options">
+                <label>
+                  <input class="bubble" type="checkbox" value="lostInACrowd"/>
+                  Lost in a Crowd
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="heavies"/>
+                  Heavies
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="minions"/>
+                  Minions
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="loyal"/>
+                  Loyal
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="tightKnit"/>
+                  Tight Knit
+                </label>
+              </div>
+              <div class="network-options">
+                <label>
+                  <input class="bubble" type="checkbox" value="anonymous"/>
+                  Anonymous
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="fileshare"/>
+                  Fileshare
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="advanceWarning"/>
+                  Advance Warning
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="openComms"/>
+                  Open Comms
+                </label>
+                <label>
+                  <input class="bubble" type="checkbox" value="looseLips"/>
+                  Loose Lips
+                </label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="band-discography">
+          <h2>Discography</h2>
+            <div class="song-container">
+              <fieldset class="repeating_songs">
+                  <h3>Title</h3>
+                  <input type="text" class="full" name="attr_songTitle"/>
+                  <h3>Genre</h3>
+                  <input type="text" class="full" name="attr_songGenre"/>
+                  <h3>Leads</h3>
+                  <textarea type="text" class="full" name="attr_songLeads"></textarea>
+                  <h3>Backups</h3>
+                  <textarea type="text" class="full" name="attr_songBackups"></textarea>
+              </fieldset>
+            </div>            
+        </div>
       </div>
-      <div class="riffs-cell">
-        <h2> Riffs </h2>
-        <fieldset class="repeating_riffs">
-          <div class="riff-line">
-            <input class="full" name="attr_riff" type="text"/>
+    </div>
+    <div class="revolution-tab">
+      <div class="revolution-section">
+        <h2>Band Name: <span name="attr_name"></span></h2>
+        <h3>Heat: <span name="attr_heatWidth"></span>☆<span name="attr_heatHeight"></span></h3>
+        <div class="revolution-strategies">
+
+          <div class="strategies-title">
+            <h2>Ministry Strategies & Tactics</h2>
+          </div>
+
+          <div class="alienation title">
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_alienationCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
+            <h3>Alienation</h3>
+          </div>
+          <div class="propaganda title">
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_propagandaCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
+            <h3>Propaganda</h3>
+          </div>
+          <div class="surveillance title">
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_surveillanceCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
+            <h3>Surveillance</h3>
+          </div>
+          <div class="subversion title">
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_subversionCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
+            <h3>Subversion</h3>
+          </div>
+          <div class="violence title">
+            <div class="clock-container-8">
+              <input
+                 type="radio"
+                 value="0"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-0" checked/>
+              <input
+                 type="radio"
+                 value="1"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-1 no-show"/>
+              <input
+                 type="radio"
+                 value="2"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-2 no-show"/>
+              <input
+                 type="radio"
+                 value="3"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-3 no-show"/>
+              <input
+                 type="radio"
+                 value="4"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-4 no-show"/>
+              <input
+                 type="radio"
+                 value="5"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-5 no-show"/>
+              <input
+                 type="radio"
+                 value="6"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-6 no-show"/>
+              <input
+                 type="radio"
+                 value="7"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-7 no-show"/>
+              <input
+                 type="radio"
+                 value="8"
+                 name="attr_violenceCheck"
+                 class="clock-checkbox clock-8 no-show"/>
+              <div class="clock"></div>
+            </div>
+            <h3>Violence</h3>
+          </div>
+
+          <div class="alienation width2">
+            <input type="checkbox" class="bubble" name="attr_alienation2Check"/>
+            <h4>Social Ostracism</h4>
+            <p>2☆2</p>
+          </div>
+          <div class="alienation width3">
+            <input type="checkbox" class="bubble" name="attr_alienation3Check"/>
+            <h4>Denial of Services</h4>
+            <p>3☆2</p>
+          </div>
+          <div class="alienation width4">
+            <input type="checkbox" class="bubble" name="attr_alienation4Check"/>
+            <h4>Community Retribution</h4>
+            <p>4☆2</p>
+          </div>
+          <div class="alienation width5">
+            <input type="checkbox" class="bubble" name="attr_alienation5Check"/>
+            <h4>Ministry's Most Wanted</h4>
+            <p>5☆2</p>
+          </div>
+          <div class="alienation width6">
+            <input type="checkbox" class="bubble" name="attr_alienation6Check"/>
+            <h4>Formal Sanction</h4>
+            <p>6☆2</p>
+          </div>
+
+          <div class="propaganda width2">
+            <input type="checkbox" class="bubble" name="attr_propaganda2Check"/>
+            <h4>Rumor Mill</h4>
+            <p>2☆2</p>
+          </div>
+          <div class="propaganda width3">
+            <input type="checkbox" class="bubble" name="attr_propaganda3Check"/>
+            <h4>Victim Complex</h4>
+            <p>3☆2</p>
+          </div>
+          <div class="propaganda width4">
+            <input type="checkbox" class="bubble" name="attr_propaganda4Check"/>
+            <h4>False Flag</h4>
+            <p>4☆2</p>
+          </div>
+          <div class="propaganda width5">
+            <input type="checkbox" class="bubble" name="attr_propaganda5Check"/>
+            <h4>Fallen World</h4>
+            <p>5☆2</p>
+          </div>
+          <div class="propaganda width6">
+            <input type="checkbox" class="bubble" name="attr_propaganda6Check"/>
+            <h4>Alien Disclosure</h4>
+            <p>6☆2</p>
+          </div>
+
+          <div class="surveillance width2">
+            <input type="checkbox" class="bubble" name="attr_surveillance2Check"/>
+            <h4>Nosy Neighbors</h4>
+            <p>2☆2</p>
+          </div>
+          <div class="surveillance width3">
+            <input type="checkbox" class="bubble" name="attr_surveillance3Check"/>
+            <h4>Stakeout</h4>
+            <p>3☆2</p>
+          </div>
+          <div class="surveillance width4">
+            <input type="checkbox" class="bubble" name="attr_surveillance4Check"/>
+            <h4>Wired</h4>
+            <p>4☆2</p>
+          </div>
+          <div class="surveillance width5">
+            <input type="checkbox" class="bubble" name="attr_surveillance5Check"/>
+            <h4>The Right Profile</h4>
+            <p>5☆2</p>
+          </div>
+          <div class="surveillance width6">
+            <input type="checkbox" class="bubble" name="attr_surveillance6Check"/>
+            <h4>Panopticon</h4>
+            <p>6☆2</p>
+          </div>
+
+          <div class="subversion width2">
+            <input type="checkbox" class="bubble" name="attr_subversion2Check"/>
+            <h4>Neighborhood Asset</h4>
+            <p>2☆2</p>
+          </div>
+          <div class="subversion width3">
+            <input type="checkbox" class="bubble" name="attr_subversion3Check"/>
+            <h4>Scenester Mole</h4>
+            <p>3☆2</p>
+          </div>
+          <div class="subversion width4">
+            <input type="checkbox" class="bubble" name="attr_subversion4Check"/>
+            <h4>Blackmail</h4>
+            <p>4☆2</p>
+          </div>
+          <div class="subversion width5">
+            <input type="checkbox" class="bubble" name="attr_subversion5Check"/>
+            <h4>The Subliminal Seducer</h4>
+            <p>5☆2</p>
+          </div>
+          <div class="subversion width6">
+            <input type="checkbox" class="bubble" name="attr_subversion6Check"/>
+            <h4>Emulation</h4>
+            <p>6☆2</p>
+          </div>
+
+          <div class="violence width2">
+            <input type="checkbox" class="bubble" name="attr_violence2Check"/>
+            <h4>Neighborhood Threat</h4>
+            <p>2☆2</p>
+          </div>
+          <div class="violence width3">
+            <input type="checkbox" class="bubble" name="attr_violence3Check"/>
+            <h4>Police on My Back</h4>
+            <p>3☆2</p>
+          </div>
+          <div class="violence width4">
+            <input type="checkbox" class="bubble" name="attr_violence4Check"/>
+            <h4>Ministry Raid</h4>
+            <p>4☆2</p>
+          </div>
+          <div class="violence width5">
+            <input type="checkbox" class="bubble" name="attr_violence5Check"/>
+            <h4>Assassination Attempt</h4>
+            <p>5☆2</p>
+          </div>
+          <div class="violence width6">
+            <input type="checkbox" class="bubble" name="attr_violence6Check"/>
+            <h4>Space Force</h4>
+            <p>6☆2</p>
+          </div>
+
+          <div class="praxis-title">
+            <h2>Praxis</h2>
+          </div>
+          <div class="alienation velvet">
+            <input type="checkbox" class="bubble" name="attr_subsistenceCheck"/>
+            <h4>Subsistence</h4>
           </div>          
-        </fieldset>
-      </div>
-      <div class="solos-cell">
-        <h2> Solos </h2>
-        <fieldset class="repeating_solos">
-          <div class="solo-line">
-            <div class="solo-spent">
-            <input type="checkbox" class="bubble" name="attr_soloSpent" value="1"/>
-            </div>
-            <div class="solo-name">
-              <input name="attr_solo" class="full" type="text"/>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <div class="relationships-cell">
-        <h2> Relationships </h2>
-        <fieldset class="repeating_relationships">
-          <div class="relationship-line">
-            <div class="relationship-spent">
-              <input type="checkbox" name="attr_relationshipSpent" class="bubble" value="1"/>
-            </div>
-            <div class="relationship-target">
-              <input type="text" class="full" name="attr_relationshipCharacter"/>
-            </div>
-            <div class="relationship-strength">
-              <input type="number" min="2" max="6" name="attr_relationshipStrength" class="full"/>
-            </div>
-            <div class="relationship-type">
-              <select name="attr_relationshipType" class="full">
-                <option value="friendship">Friendship</option>
-                <option value="love">Love</option>
-                <option value="rivalry">Rivalry</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <div class="stress-violence-cell">
-        <h2>
-          Stress & Injury
-        </h2>
-        <div class="injury-limit">
-          <h3>
-            Injury Limit:
-          </h3>
+          <div class="alienation cobalt-army">
+            <input type="checkbox" class="bubble" name="attr_heistCheck"/>
+            <h4>Heist</h4>
+          </div>          
+          <div class="propaganda velvet">
+            <input type="checkbox" class="bubble" name="attr_spectacleCheck"/>
+            <h4>Spectacle</h4>
+          </div>          
+          <div class="propaganda cobalt-army">
+            <input type="checkbox" class="bubble" name="attr_disruptionCheck"/>
+            <h4>Disruption</h4>
+          </div>          
+          <div class="surveillance velvet">
+            <input type="checkbox" class="bubble" name="attr_disinformationCheck"/>
+            <h4>Disinformation</h4>
+          </div>          
+          <div class="surveillance cobalt-army">
+            <input type="checkbox" class="bubble" name="attr_sabotageCheck"/>
+            <h4>Sabotage</h4>
+          </div>          
+          <div class="subversion velvet">
+            <input type="checkbox" class="bubble" name="attr_solidarityCheck"/>
+            <h4>Solidarity</h4>
+          </div>          
+          <div class="subversion cobalt-army">
+            <input type="checkbox" class="bubble" name="attr_disciplineCheck"/>
+            <h4>Discipline</h4>
+          </div>          
+          <div class="violence velvet">
+            <input type="checkbox" class="bubble" name="attr_samizdatCheck"/>
+            <h4>Samizdat</h4>
+          </div>          
+          <div class="violence cobalt-army">
+            <input type="checkbox" class="bubble" name="attr_revolutionaryViolenceCheck"/>
+            <h4>Revolutionary Violence</h4>
+          </div>          
         </div>
-        <div class="stress-violence-container">
-          <div class="stress-cell">
-            <div class="injury-container">
-              <div class="injury-clock">
-                <div class="clock-container-3">
-                  <input type="radio" value="0" name="attr_stress" class="clock-checkbox clock-checkbox clock-0" checked/>
-                  <input type="radio" value="2" name="attr_stress" class="clock-checkbox clock-checkbox clock-1 no-show"/>
-                  <input type="radio" value="4" name="attr_stress" class="clock-checkbox clock-checkbox clock-2 no-show"/>
-                  <input type="radio" value="6" name="attr_stress" class="clock-checkbox clock-checkbox clock-3 no-show"/>
-                  <div class="clock"></div>
-                </div>
-              </div>
-              <div class="third-degree">
-                Exhausted
-              </div>
-              <div class="injury-label">
-                <h3>Stress</h3>
-              </div>
-            </div>
-          </div>
-          <div class="rough-cell">
-            <div class="injury-container">
-              <div class="injury-clock">
-                <div class="clock-container-6">
-                  <input
-                     type="radio"
-                     value="0"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-0" checked/>
-                  <input
-                     type="radio"
-                     value="1"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-1 no-show"/>
-                  <input
-                     type="radio"
-                     value="2"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-2 no-show"/>
-                  <input
-                     type="radio"
-                     value="3"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-3 no-show"/>
-                  <input
-                     type="radio"
-                     value="4"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-4 no-show"/>
-                  <input
-                     type="radio"
-                     value="5"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-5 no-show"/>
-                  <input
-                     type="radio"
-                     value="6"
-                     name="attr_roughDamage"
-                     class="clock-checkbox clock-6 no-show"/>
-                  <div class="clock"></div>
-                </div>
-              </div>
-              <div class="third-degree">
-                Out
-              </div>
-              <div class="second-degree">
-                Cowed
-              </div>
-              <div class="first-degree">
-                Timid
-              </div>
-              <div class="injury-label">
-                <h3>Rough</h3>
-              </div>
-            </div>
-          </div>
-          <div class="bloody-cell">
-            <div class="injury-container">
-              <div class="injury-clock">
-                <div class="clock-container-6">
-                  <input
-                     type="radio"
-                     value="0"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-0" checked/>
-                  <input
-                     type="radio"
-                     value="1"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-1 no-show"/>
-                  <input
-                     type="radio"
-                     value="2"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-2 no-show"/>
-                  <input
-                     type="radio"
-                     value="3"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-3 no-show"/>
-                  <input
-                     type="radio"
-                     value="4"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-4 no-show"/>
-                  <input
-                     type="radio"
-                     value="5"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-5 no-show"/>
-                  <input
-                     type="radio"
-                     value="6"
-                     name="attr_bloodyDamage"
-                     class="clock-checkbox clock-6 no-show"/>
-                  <div class="clock"></div>
-                </div>
-              </div>
-              <div class="third-degree">
-                Out
-              </div>
-              <div class="second-degree">
-                Cowed
-              </div>
-              <div class="first-degree">
-                Timid
-              </div>
-              <div class="injury-label">
-                <h3>Bloody</h3>
-              </div>
-            </div>
-          </div>
-          <div class="deadly-cell">
-            <div class="injury-container">
-              <div class="injury-clock">
-                <div class="clock-container-6">
-                  <input
-                     type="radio"
-                     value="0"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-0" checked/>
-                  <input
-                     type="radio"
-                     value="1"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-1 no-show"/>
-                  <input
-                     type="radio"
-                     value="2"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-2 no-show"/>
-                  <input
-                     type="radio"
-                     value="3"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-3 no-show"/>
-                  <input
-                     type="radio"
-                     value="4"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-4 no-show"/>
-                  <input
-                     type="radio"
-                     value="5"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-5 no-show"/>
-                  <input
-                     type="radio"
-                     value="6"
-                     name="attr_deadlyDamage"
-                     class="clock-checkbox clock-6 no-show"/>
-                  <div class="clock"></div>
-                </div>
-              </div>
-              <div class="third-degree">
-                Out
-              </div>
-              <div class="second-degree">
-                Cowed
-              </div>
-              <div class="first-degree">
-                Timid
-              </div>
-              <div class="injury-label">
-                <h3>Deadly</h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </body>
