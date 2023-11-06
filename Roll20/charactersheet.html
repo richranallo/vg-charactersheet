@@ -22,6 +22,7 @@
       </div>
       <div class="character-tab">
         <div class="character-section">
+          <input type="hidden" class="descent-indicator" name="attr_descent"/>
           <div class="names-cell">
             <h2> Names </h2>
             <fieldset class="repeating_names">
@@ -117,7 +118,7 @@
           <div class="action-score-cell">
             <h2> Action Scores </h2><br/><br/>
             <div class="action-grid">
-              <input type="hidden" class="descent-indicator" name="attr_descent"/>
+              <!-- <input type="hidden" class="descent-indicator" name="attr_descent"/> -->
               <div></div>
               <div class="organize music">
                 <input type="checkbox" name="attr_organizeMusic" value="1" class="bubble" />
@@ -213,7 +214,6 @@
               <div class="evade mojo">
                 <input type="checkbox" name="attr_evadeMojo" value="1" class="bubble" />
               </div>
-
               <div class="table-topline music">
                 <p>Music</p>
                 <!-- <span name="attr_music"></span> -->
@@ -515,6 +515,44 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="mojo-cell">
+            <h2>Mojo</h2>
+            <input type="hidden" class="organizeMojo-indicator" name="attr_organizeMojo"/>
+            <input type="hidden" class="poseMojo-indicator" name="attr_poseMojo"/>
+            <input type="hidden" class="performMojo-indicator" name="attr_performMojo"/>
+            <input type="hidden" class="perceiveMojo-indicator" name="attr_perceiveMojo"/>
+            <input type="hidden" class="evadeMojo-indicator" name="attr_evadeMojo"/>
+            <div class="mojo-grid">
+              <fieldset class="repeating_riffs">
+                <input type="hidden" class="riff-indicator" name="attr_riff"/>
+
+                <div class="mojo-line mojo-block flex">
+                  <h3 class="flex">Flex</h3>
+                  <p class="mojo-talent organize">Starlight Makeover</p>
+                  <p class="mojo-talent perform">Something Totally New</p>
+                  <p class="mojo-talent pose">Face the Strange</p>
+                  <p class="mojo-talent evade">Bounce Back</p>
+                  <p class="mojo-talent perceive">Feel Yourself</p>
+                </div>
+                <div class="mojo-line mojo-block sparkle">
+                  <h3 class="sparkle">Sparkle</h3>
+                    <p class="mojo-talent organize">Quite Out of Sight</p>
+                    <p class="mojo-talent perform">Diamondstar Halo</p>
+                    <p class="mojo-talent pose">Hologram</p>
+                    <p class="mojo-talent evade">Fade to Black</p>
+                    <p class="mojo-talent perceive">TV Eye</p>
+                </div>
+                <div class="mojo-line mojo-block vibe">
+                  <h3 class="vibe">Vibe</h3>
+                  <p class="mojo-talent organize">Mothership Connection</p>
+                  <p class="mojo-talent perform">Six-String Heart</p>
+                  <p class="mojo-talent pose">Midnight Radio</p>
+                  <p class="mojo-talent evade">Forget Your Mind</p>
+                  <p class="mojo-talent perceive">Condition of the Heart</p>
+                </div>         
+              </fieldset>
             </div>
           </div>
         </div>

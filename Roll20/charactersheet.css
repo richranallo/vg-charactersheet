@@ -11,7 +11,6 @@
   --clock-gradient-empty-start-even: var(--color-dark);
   --clock-gradient-empty-end-even: var(--color-light);
 }
-
 .sheets-wrapper {
   width: 750px;
 }
@@ -71,7 +70,8 @@
     "relationships  genre"
     "relationships  riffs"
     "solos          riffs"
-    "injury         injury";
+    "injury         injury"
+    "mojo           mojo"
   }
 .names-cell {
   grid-area: names;
@@ -117,7 +117,13 @@
   grid-area: injury;
   padding-top: 1em;
 }
-.stress-cell {
+.mojo-cell {
+  grid-area: mojo;
+}
+.descent-indicator[value="starchild" i] ~ .action-score-cell .action-grid .mojo {
+  display: block;
+}
+/*.stress-cell {
   grid-area: stress;
 }
 .rough-cell {
@@ -128,7 +134,7 @@
 }
 .deadly-cell {
   grid-area: deadly;
-}
+}*/
 
 .band-section {
   display: grid;
@@ -316,7 +322,7 @@ h1, h2, h3, h4, h5, h6  {
 }
 
 h2 {
-  background-image: url("https://raw.githubusercontent.com/richranallo/vg-charactersheet/17359fc10923971d5f242a25bb87ce49bf47f417/img/swipe.svg");
+/*  background-image: url("https://raw.githubusercontent.com/richranallo/vg-charactersheet/31ade31e5d350025339cf1d5dc236d03f3ab52b5/img/swipe-pink.svg");*/
   background-repeat: no-repeat;
   background-size: 100%;
   background-opacity: .1;
@@ -382,18 +388,24 @@ input[type="radio"]:checked {
 }
 
 .repcontrol button {
-  background-color: var(--color-dark);
+  background-color: transparent;
   background-image: none;
   border: none;
+  box-shadow: none;
   border-radius: 50%;
-  color: white;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
+  color: var(--color-dark);
+/*  padding-top: 3px;*/
+/*  padding-bottom: 3px;*/
+/*  padding-left: 8px;*/
+/*  padding-right: 8px;*/
+  text-shadow: none;
   text-align: center;
   display: inline-block;
-  font-size: 10px;
+  font-size: 12px;
+}
+
+.repcontrol button:hover {
+  background-color: var(--color-light);
 }
 
 /* ACTION GRID */
@@ -413,8 +425,8 @@ input[type="radio"]:checked {
     z-index: -1;
   }
 
-  .descent-indicator[value="earthling"] ~ .mojo {
-    display: none;
+  .action-grid .mojo {
+    display:none;
   }
 
   .table-topline>p {
@@ -676,6 +688,71 @@ input[type="radio"]:checked {
   .injury-container .injury-label {
   grid-area: injury-label;
   text-align: center;
+}
+
+/* MOJO */
+.mojo-cell {
+  display: none;
+}
+
+.descent-indicator[value="starchild" i] ~ .mojo-cell {
+  display: inherit;
+}
+
+.mojo-line {
+  display: none;
+  height: 5em;
+}
+
+.mojo-grid .repcontrol {
+  display:none;
+}
+
+.mojo-talent {
+  display: none;
+  text-align: center;
+}
+
+.mojo-line h3 {
+  width: 5em;
+  margin: 10px;
+}
+
+.mojo-line p {
+  width: 7em;
+  margin: 10px;
+}
+
+.riff-indicator[value~="flex" i] ~ .flex {
+  display: flex;
+}
+
+.riff-indicator[value~="sparkle" i] ~ .sparkle {
+  display: flex;
+}
+
+.riff-indicator[value~="vibe" i] ~ .vibe {
+  display: flex;
+}
+
+.organizeMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .organize {
+  display: block;
+}
+
+.performMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perform {
+  display: block;
+}
+
+.poseMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .pose {
+  display: block;
+}
+
+.evadeMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .evade {
+  display: block;
+}
+
+.perceiveMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perceive {
+  display: block;
 }
 
 /* FACTION STATUS */
