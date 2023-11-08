@@ -40,8 +40,8 @@
   column-gap: 20px;
   grid-template-rows: 150px;
   height:180px;
-  margin-bottom: 3em;
-  background-image: url(https://raw.githubusercontent.com/richranallo/vg-charactersheet/1a68e48660a938ccda392ae854949745e80a51ff/img/right-block.svg);
+  margin-bottom: 1em;
+  background-image: url(https://raw.githubusercontent.com/richranallo/vg-charactersheet/ec2a05d8c12e775855bcd3c9a860430d2a93b5d2/img/right-block.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
