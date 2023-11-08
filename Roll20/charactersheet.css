@@ -39,7 +39,11 @@
   grid-template-columns: repeat(2, 365px);
   column-gap: 20px;
   grid-template-rows: 150px;
+  height:180px;
   margin-bottom: 3em;
+  background-image: url(https://raw.githubusercontent.com/richranallo/vg-charactersheet/1a68e48660a938ccda392ae854949745e80a51ff/img/right-block.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .logo-cell {
   grid-template-columns: 1;
@@ -382,6 +386,13 @@ textarea.full {
   width:98%;
 }
 
+.header-section select {
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--color-light);
+  font-size: 24px;
+  padding:0;
+}
 .no-show {
   opacity: 0;  
 }
