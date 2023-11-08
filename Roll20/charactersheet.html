@@ -25,9 +25,7 @@
           <input type="hidden" class="descent-indicator" name="attr_descent"/>
           <div class="names-cell">
             <h2> Names </h2>
-            <fieldset class="repeating_names">
-              <input class="full name" name="attr_name" type="text" placeholder="Name/pronouns"/>
-            </fieldset>
+              <textarea class="full name" name="attr_names" type="text"></textarea>
           </div>
           <div class="descent-cell">
             <h2> Descent </h2>
@@ -116,7 +114,7 @@
             </div>
           </div>
           <div class="action-score-cell">
-            <h2> Action Scores </h2><br/><br/>
+            <h2> Action Scores </h2>
             <div class="action-grid">
               <div class ="action-roller">
                 <input type="hidden" name="attr_selected_noun"/>
@@ -291,17 +289,11 @@
           </div>
           <div class="genre-cell">
             <h2> Genre/Rep </h2>
-            <fieldset class="repeating_genre">
-              <input class="full" name="attr_genre1" type="text"/>
-            </fieldset>
+            <textarea class="full" name="attr_genre" type="text"></textarea>
           </div>
           <div class="instruments-cell">
             <h2> Instruments/Styles </h2>
-            <fieldset class="repeating_instruments">
-              <div class="instrument-line">
-                <input class="full" name="attr_instrument" type="text"/>
-              </div>
-            </fieldset>
+              <textarea class="full" name="attr_instrument" type="text"></textarea>
           </div>
           <div class="riffs-cell">
             <h2> Riffs </h2>
@@ -353,7 +345,9 @@
             </h2>
             <div class="injury-limit">
               <h3>
-                Injury Limit: <input type="number" class="score" name="attr_injuryLimitWidth" value="2" min="2" max="6">☆<input type="number" class="score" name="attr_violence" value="2" min="2" max="6">
+                Injury Limit: <input type="number" class="score" name="attr_injuryLimitWidth" value="2" min="2" max="6">
+                ☆
+                <input type="number" class="score" name="attr_injuryLimitHeight" value="(@{violence}+1)" min="2" max="6" disabled="true">
               </h3>
             </div>
             <div class="stress-violence-container">
@@ -594,9 +588,7 @@
           </div>
           <div class="band-genre">
             <h2>Genre</h2>
-            <fieldset class="repeating_genres">
-              <input class="full" name="attr_genre" type="text"/>
-            </fieldset>
+            <textarea class="full" name="attr_genre" type="text"></textarea>
           </div>
           <div class="band-fame">
             <h2>Fame</h2>

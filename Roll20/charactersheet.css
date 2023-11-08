@@ -63,12 +63,11 @@
   column-gap: 20px;
   grid-template-areas:
     "logo-cell      sheet-type-cell"
-    "names          descent"
+    "names          fame"
+    "action-scores  descent"
     "action-scores  roles"
-    "action-scores  instruments"
-    "fame           genre"
+    "relationships  instruments"
     "relationships  genre"
-    "relationships  riffs"
     "solos          riffs"
     "injury         injury"
     "mojo           mojo"
@@ -145,9 +144,8 @@
   grid-template-areas:
     "band-name            band-fame"
     "band-genre           band-heat"
-    "band-scene            band-heat"
     "band-scene           band-faction-status"
-    "band-sister-cells     band-connections"
+    "band-sister-cells    band-connections"
     "band-assets          band-assets"
     "band-discography     band-discography"
     ;
@@ -221,7 +219,8 @@
 .revolution-section .revolution-strategies .violence {
   grid-column: 5;
   text-align: center;
-  padding: 2px;
+  padding-left:5px;
+  padding-right: 5px;
 }
 .revolution-section .revolution-strategies .band-name {
   grid-column: 1 / span 3;
@@ -378,6 +377,11 @@ input[type="radio"]:checked {
   border-color: var(--color-dark);
 }
 
+textarea.full {
+  height: 3em;
+  width:98%;
+}
+
 .no-show {
   opacity: 0;  
 }
@@ -412,9 +416,8 @@ input[type="radio"]:checked {
 
   .action-grid {
     display: grid;
-    grid-template-columns: 5em repeat(6,3.6em);
+    grid-template-columns: 5em repeat(6,4em);
     grid-template-rows: auto repeat(5, 2em);
-    column-gap: 5px;
     align-items: center;
     text-align: center;
   }
@@ -555,6 +558,8 @@ input[type="radio"]:checked {
     line-height: 0px;
     text-align: right;
     white-space: nowrap;
+    vertical-align: middle;
+    margin-bottom: 0px;
   }
 
   .action-grid input[type=number] {
