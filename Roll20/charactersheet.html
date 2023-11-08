@@ -118,145 +118,174 @@
           <div class="action-score-cell">
             <h2> Action Scores </h2><br/><br/>
             <div class="action-grid">
-              <!-- <input type="hidden" class="descent-indicator" name="attr_descent"/> -->
-              <div></div>
+              <div class ="action-roller">
+                <input type="hidden" name="attr_selected_noun"/>
+                <input type="hidden" name="attr_selected_noun_value" value="1"/>
+                <input type="hidden" name="attr_selected_verb"/>
+                <input type="hidden" name="attr_selected_verb_value" value="1"/>
+                <input type="hidden" name="attr_roll_total" value="2" disabled="true"/>
+                <button type="roll" name="act_roll_scores" value="/roll [@{selected_verb} @{selected_noun}] @{roll_total}d6msa">
+                  Roll <span name="attr_roll_total" ></span>
+                </button>
+              </div>
               <div class="organize music">
-                <input type="checkbox" name="attr_organizeMusic" value="1" class="bubble" />
+                <input type="checkbox" name="attr_organize-music" value="1" class="bubble" />
               </div>
               <div class="organize violence">
-                <input type="checkbox" name="attr_organizeViolence" value="1" class="bubble" />
+                <input type="checkbox" name="attr_organize-violence" value="1" class="bubble" />
               </div>
               <div class="organize tech">
-                <input type="checkbox" name="attr_organizeTech" value="1" class="bubble" />
+                <input type="checkbox" name="attr_organize-tech" value="1" class="bubble" />
               </div>
               <div class="organize authority">
-                <input type="checkbox" name="attr_organizeAuthority" value="1" class="bubble" />
+                <input type="checkbox" name="attr_organize-authority" value="1" class="bubble" />
               </div>
               <div class="organize minds">
-                <input type="checkbox" name="attr_organizeMinds" value="1" checked="true" disabled="true" class="bubble" />
+                <input type="checkbox" name="attr_organize-minds" value="1" checked="true" disabled="true" class="bubble" />
               </div>
               <div class="organize mojo">
-                <input type="checkbox" name="attr_organizeMojo" value="1" class="bubble" />
+                <input type="checkbox" name="attr_organize-mojo" value="1" class="bubble" />
               </div>
 
               <div class="perform music">
-                <input type="checkbox" name="attr_performMusic" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perform-music" value="1" class="bubble" />
               </div>
               <div class="perform violence">
-                <input type="checkbox" name="attr_performViolence" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perform-violence" value="1" class="bubble" />
               </div>
               <div class="perform tech">
-                <input type="checkbox" name="attr_performTech" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perform-tech" value="1" class="bubble" />
               </div>
               <div class="perform authority">
-                <input type="checkbox" name="attr_performAuthority" value="1" checked="true" disabled="true" class="bubble" />
+                <input type="checkbox" name="attr_perform-authority" value="1" checked="true" disabled="true" class="bubble" />
               </div>
               <div class="perform minds">
-                <input type="checkbox" name="attr_performMinds" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perform-minds" value="1" class="bubble" />
               </div>
               <div class="perform mojo">
-                <input type="checkbox" name="attr_performMojo" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perform-mojo" value="1" class="bubble" />
               </div>
 
               <div class="pose music">
-                <input type="checkbox" name="attr_poseMusic" value="1" class="bubble" />
+                <input type="checkbox" name="attr_pose-music" value="1" class="bubble" />
               </div>
               <div class="pose violence">
-                <input type="checkbox" name="attr_poseViolence" value="1" class="bubble" />
+                <input type="checkbox" name="attr_pose-violence" value="1" class="bubble" />
               </div>
               <div class="pose tech">
-                <input type="checkbox" name="attr_poseTech" value="1" checked="true" disabled="true" class="bubble" />
+                <input type="checkbox" name="attr_pose-tech" value="1" checked="true" disabled="true" class="bubble" />
               </div>
               <div class="pose authority">
-                <input type="checkbox" name="attr_poseAuthority" value="1" class="bubble" />
+                <input type="checkbox" name="attr_pose-authority" value="1" class="bubble" />
               </div>
               <div class="pose minds">
-                <input type="checkbox" name="attr_poseMinds" value="1" class="bubble" />
+                <input type="checkbox" name="attr_pose-minds" value="1" class="bubble" />
               </div>
               <div class="pose mojo">
-                <input type="checkbox" name="attr_poseMojo" value="1" class="bubble" />
+                <input type="checkbox" name="attr_pose-mojo" value="1" class="bubble" />
               </div>
 
               <div class="perceive music">
-                <input type="checkbox" name="attr_perceiveMusic" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perceive-music" value="1" class="bubble" />
               </div>
               <div class="perceive violence">
-                <input type="checkbox" name="attr_perceiveViolence" value="1" checked="true" disabled="true" class="bubble" />
+                <input type="checkbox" name="attr_perceive-violence" value="1" checked="true" disabled="true" class="bubble" />
               </div>
               <div class="perceive tech">
-                <input type="checkbox" name="attr_perceiveTech" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perceive-tech" value="1" class="bubble" />
               </div>
               <div class="perceive authority">
-                <input type="checkbox" name="attr_perceiveAuthority" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perceive-authority" value="1" class="bubble" />
               </div>
               <div class="perceive minds">
-                <input type="checkbox" name="attr_perceiveMinds" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perceive-minds" value="1" class="bubble" />
               </div>
               <div class="perceive mojo">
-                <input type="checkbox" name="attr_perceiveMojo" value="1" class="bubble" />
+                <input type="checkbox" name="attr_perceive-mojo" value="1" class="bubble" />
               </div>
 
               <div class="evade music">
-                <input type="checkbox" name="attr_evadeMusic" value="1" checked="true" disabled="true" class="bubble" />
+                <input type="checkbox" name="attr_evade-music" value="1" checked="true" disabled="true" class="bubble" />
               </div>
               <div class="evade violence">
-                <input type="checkbox" name="attr_evadeViolence" value="1" class="bubble" />
+                <input type="checkbox" name="attr_evade-violence" value="1" class="bubble" />
               </div>
               <div class="evade tech">
-                <input type="checkbox" name="attr_evadeTech" value="1" class="bubble" />
+                <input type="checkbox" name="attr_evade-tech" value="1" class="bubble" />
               </div>
               <div class="evade authority">
-                <input type="checkbox" name="attr_evadeAuthority" value="1" class="bubble" />
+                <input type="checkbox" name="attr_evade-authority" value="1" class="bubble" />
               </div>
               <div class="evade minds">
-                <input type="checkbox" name="attr_evadeMinds" value="1" class="bubble" />
+                <input type="checkbox" name="attr_evade-minds" value="1" class="bubble" />
               </div>
               <div class="evade mojo">
-                <input type="checkbox" name="attr_evadeMojo" value="1" class="bubble" />
+                <input type="checkbox" name="attr_evade-mojo" value="1" class="bubble" />
               </div>
+
               <div class="table-topline music">
-                <p>Music</p>
-                <!-- <span name="attr_music"></span> -->
-                <input type="number" class="score" name="attr_music" value="(@{organizeMusic}+@{performMusic}+@{poseMusic}+@{evadeMusic}+@{perceiveMusic})" disabled="true"/>
+                <input type="hidden" class="score" name="attr_music" value="1"/>
+                <button type="action" name="act_selectMusic">Music<br/>
+                  <span name="attr_music"></span></button>
               </div>
               <div class="table-topline violence">
-                <p>Violence</p>
-                <input type="number" name="attr_violence" class="score" value="@{organizeViolence}+@{performViolence}+@{poseViolence}+@{evadeViolence}+@{perceiveViolence}" disabled="true"/>
+                <input type="hidden" class="score" name="attr_violence" value="1"/>
+                <button type="action" name="act_selectViolence">Violence<br/>
+                  <span name="attr_violence"></span></button>
               </div>
               <div class="table-topline tech">
-                <p>Tech</p>
-                <input type="number" name="attr_tech" class="score" value="@{organizeTech}+@{performTech}+@{poseTech}+@{evadeTech}+@{perceiveTech}" disabled="true"/>
+                <input type="hidden" class="score" name="attr_tech" value="1"/>
+                <button type="action" name="act_selectTech">Tech<br/>
+                  <span name="attr_tech"></span></button>
+                <!-- <input type="number" name="attr_tech" class="score"  value="1"/> -->
               </div>
               <div class="table-topline authority">
-                <p>Authority</p>
-                <input type="number" name="attr_authority" class="score" value="@{organizeAuthority}+@{performAuthority}+@{poseAuthority}+@{evadeAuthority}+@{perceiveAuthority}" disabled="true"/>
+                <input type="hidden" class="score" name="attr_authority" value="1"/>
+                <button type="action" name="act_selectAuthority">Authority<br/>
+                  <span name="attr_authority"></span></button>
+                <!-- <input type="number" name="attr_authority" class="score"  value="1"/> -->
               </div>
               <div class="table-topline minds">
-                <p>Minds</p>
-                <input type="number" name="attr_minds" class="score" value="@{organizeMinds}+@{performMinds}+@{poseMinds}+@{evadeMinds}+@{perceiveMinds}" disabled="true"/>
+                <input type="hidden" class="score" name="attr_minds" value="1"/>
+                <button type="action" name="act_selectMinds">Minds<br/>
+                  <span name="attr_minds"></span></button>
+                <!-- <input type="number" name="attr_minds" class="score"  value="1"/> -->
               </div>
               <div class="table-topline mojo">
-                <p>Mojo</p>
-                <input type="number" name="attr_mojo" class="score" value="@{organizeMojo}+@{performMojo}+@{poseMojo}+@{evadeMojo}+@{perceiveMojo}" disabled="true"/>
+                <input type="hidden" class="score" name="attr_mojo" value="1"/>
+                <button type="action" name="act_selectMojo">Mojo<br/>
+                  <span name="attr_mojo"></span></button>
+                <!-- <input type="number" name="attr_mojo" class="score" value="1"/> -->
               </div>
               <div class="left-column organize">
-                <p class="left-column">Organize&nbsp;<input type="number" name="attr_organize" class="score" value="@{organizeMusic}+@{organizeViolence}+@{organizeTech}+@{organizeAuthority}+@{organizeMinds}+@{organizeMojo}" disabled="true"/></p>
+                <input type="hidden" class="score" name="attr_organize" value="1"/>
+                <p class="left-column"><button type="action" name="act_selectOrganize">Organize&nbsp;
+                  <span name="attr_organize"></span></button>
+                  <!-- <input type="number" name="attr_organize" class="score" value="1"/> --></p>
               </div>
               <div class="left-column perform">
-                <p class="left-column">Perform&nbsp;
-                <input type="number" name="attr_perform" class="score" value="@{performMusic}+@{performViolence}+@{performTech}+@{performAuthority}+@{performMinds}+@{performMojo}" disabled="true"/></p>
+                <input type="hidden" class="score" name="attr_perform" value="1"/>
+                <p class="left-column"><button type="action" name="act_selectPerform">Perform&nbsp;
+                  <span name="attr_perform"></span></button>
+                <!-- <input type="number" name="attr_perform" class="score" value="1" /> --></p>
               </div>
               <div class="left-column pose">
-                <p class="left-column">Pose&nbsp;
-                <input type="number" name="attr_pose" class="score" value="@{poseMusic}+@{poseViolence}+@{poseTech}+@{poseAuthority}+@{poseMinds}+@{poseMojo}" disabled="true"/></p>
+                <input type="hidden" class="score" name="attr_pose" value="1"/>
+                <p class="left-column"><button type="action" name="act_selectPose">Pose&nbsp;
+                  <span name="attr_pose"></span></button>
+                <!-- <input type="number" name="attr_pose" class="score" value="1" /> --></p>
               </div>
               <div class="left-column perceive">
-                <p class="left-column">Perceive&nbsp;
-                <input type="number" name="attr_perceive" class="score" value="@{perceiveMusic}+@{perceiveViolence}+@{perceiveTech}+@{perceiveAuthority}+@{perceiveMinds}+@{perceiveMojo}" disabled="true"/></p>
+                <input type="hidden" class="score" name="attr_perceive" value="1"/>
+                <p class="left-column"><button type="action" name="act_selectPerceive">Perceive&nbsp;
+                  <span name="attr_perceive"></span></button>
+                <!-- <input type="number" name="attr_perceive" class="score" value="1" /> --></p>
               </div>
               <div class="left-column evade">
-                <p class="left-column">Evade&nbsp;
-                <input type="number" name="attr_evade" class="score" value="@{evadeMusic}+@{evadeViolence}+@{evadeTech}+@{evadeAuthority}+@{evadeMinds}+@{evadeMojo}" disabled="true"/></p>
+                <input type="hidden" class="score" name="attr_evade" value="1"/>
+                <p class="left-column"><button type="action" name="act_selectEvade">Evade&nbsp;
+                  <span name="attr_evade"></span></button>
+                <!-- <input type="number" name="attr_evade" class="score" value="1" /> --></p>
               </div>
             </div>
           </div>
@@ -324,7 +353,7 @@
             </h2>
             <div class="injury-limit">
               <h3>
-                Injury Limit: <input type="number" class="score" name="attr_injuryLimitWidth" value="2">☆<input type="number" class="score" name="attr_violence" value="2">
+                Injury Limit: <input type="number" class="score" name="attr_injuryLimitWidth" value="2" min="2" max="6">☆<input type="number" class="score" name="attr_violence" value="2" min="2" max="6">
               </h3>
             </div>
             <div class="stress-violence-container">
@@ -519,11 +548,11 @@
           </div>
           <div class="mojo-cell">
             <h2>Mojo</h2>
-            <input type="hidden" class="organizeMojo-indicator" name="attr_organizeMojo"/>
-            <input type="hidden" class="poseMojo-indicator" name="attr_poseMojo"/>
-            <input type="hidden" class="performMojo-indicator" name="attr_performMojo"/>
-            <input type="hidden" class="perceiveMojo-indicator" name="attr_perceiveMojo"/>
-            <input type="hidden" class="evadeMojo-indicator" name="attr_evadeMojo"/>
+            <input type="hidden" class="organize-mojo-indicator" name="attr_organize-mojo"/>
+            <input type="hidden" class="pose-mojo-indicator" name="attr_pose-mojo"/>
+            <input type="hidden" class="perform-mojo-indicator" name="attr_perform-mojo"/>
+            <input type="hidden" class="perceive-mojo-indicator" name="attr_perceive-mojo"/>
+            <input type="hidden" class="evade-mojo-indicator" name="attr_evade-mojo"/>
             <div class="mojo-grid">
               <fieldset class="repeating_riffs">
                 <input type="hidden" class="riff-indicator" name="attr_riff"/>
@@ -1405,3 +1434,204 @@
     </div>
   </body>
 </html>
+
+<script type="text/worker">
+  const sumScores = (attrs, score) => {
+    return _.chain(attrs).mapObject(parseInt).pick((value, key) => key.includes(score)).values().reduce((memo, num)=>(memo + num), 0).value()
+  }
+  const updateActionScores = (dot) => {
+    const nouns = ['music', 'violence', 'tech', 'authority', 'minds', 'mojo']
+    const verbs = ['organize', 'perform', 'pose', 'evade', 'perceive']
+    const scores = dot.split('-')
+    getAttrs([
+      ...nouns.map(noun => `${scores[0]}-${noun}`),
+      ...verbs.map(verb => `${verb}-${scores[1]}`)
+    ], (attrs) => {
+      const newValues = {}
+      newValues[scores[1]] = sumScores(attrs, scores[1])
+      newValues[scores[0]] = sumScores(attrs, scores[0])
+      setAttrs(newValues)
+    })
+  }
+  on("change:organize-music", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:organize-violence", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:organize-tech", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:organize-authority", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:organize-minds", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:organize-mojo", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  
+  on("change:perform-music", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perform-violence", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perform-tech", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perform-authority", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perform-minds", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perform-mojo", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  
+  on("change:pose-music", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:pose-violence", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:pose-tech", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:pose-authority", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:pose-minds", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:pose-mojo", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  
+  on("change:evade-music", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:evade-violence", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:evade-tech", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:evade-authority", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:evade-minds", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:evade-mojo", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  
+  on("change:perceive-music", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perceive-violence", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perceive-tech", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perceive-authority", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perceive-minds", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+  on("change:perceive-mojo", function(E) {
+   updateActionScores(E.sourceAttribute)
+  })
+
+  on("sheet:opened", () => {
+    setAttrs({
+      selected_noun_value: '',
+      selected_verb_value: '',
+      selected_verb:'',
+      selected_noun:'',
+      roll_total:''
+    })
+  })
+
+  on("change:selected_verb", (E) => {
+    $20(`.action-grid .${E.previousValue} button`)
+      .removeClass('selected')
+    $20(`.action-grid .${E.newValue} button`)
+      .addClass('selected')
+  })
+
+  on("change:selected_noun", (E) => {
+    $20(`.action-grid .${E.previousValue} button`)
+      .removeClass('selected')
+    $20(`.action-grid .${E.newValue} button`)
+      .addClass('selected')
+  })
+
+  function setRollValue(score, scoreType) {
+    getAttrs([score], (attrs) => {
+      const updateValues = {}
+      updateValues[`selected_${scoreType}`] = score
+      updateValues[`selected_${scoreType}_value`] = attrs[score]
+      setAttrs(updateValues, () => {
+        getAttrs([
+          'selected_verb_value',
+          'selected_noun_value'
+        ], ({selected_verb_value, selected_noun_value})=>{
+          setAttrs({
+            roll_total: parseInt(selected_verb_value, 10) + parseInt(selected_noun_value, 10)
+          })
+        })
+      })
+    })
+  }
+
+  on("clicked:selectEvade", function(){
+    setRollValue('evade', 'verb')
+  })
+
+  on("clicked:selectPerceive", function(){
+    setRollValue('perceive', 'verb')
+  })
+
+  on("clicked:selectPose", function(){
+    setRollValue('pose', 'verb')
+  })
+
+  on("clicked:selectPerform", function(){
+    setRollValue('perform', 'verb')
+  })
+
+  on("clicked:selectOrganize", function(){
+    setRollValue('organize', 'verb')
+  })
+
+  on("clicked:selectMusic", function(){
+    setRollValue('music', 'noun')
+  })
+
+  on("clicked:selectViolence", function(){
+    setRollValue('violence', 'noun')
+  })
+
+  on("clicked:selectTech", function(){
+    setRollValue('tech', 'noun')
+  })
+
+  on("clicked:selectAuthority", function(){
+    setRollValue('authority', 'noun')
+  })
+
+  on("clicked:selectMinds", function(){
+    setRollValue('minds', 'noun')
+  })
+
+  on("clicked:selectMojo", function(){
+    setRollValue('mojo', 'noun')
+  })
+
+</script>

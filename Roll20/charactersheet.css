@@ -412,26 +412,54 @@ input[type="radio"]:checked {
 
   .action-grid {
     display: grid;
-    grid-template-columns: 8em repeat(6,2.5em);
-    grid-template-rows: 3em repeat(5, 2em);
+    grid-template-columns: 5em repeat(6,3.6em);
+    grid-template-rows: auto repeat(5, 2em);
     column-gap: 5px;
     align-items: center;
     text-align: center;
   }
   .table-topline {
     text-align: right;
-    height: 7em;
     grid-row: 1;
-    z-index: -1;
+  }
+
+  .action-grid .action-roller button {
+    border-radius: 5px;
+    border: none;
+    background-image: none;
+    background:none;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
+
+  .action-grid .action-roller {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
   }
 
   .action-grid .mojo {
     display:none;
   }
 
-  .table-topline>p {
-    transform: rotate(45deg);
-    text-align: right;
+  .table-topline>button, .left-column>button {
+    border:none;
+    background: none;
+    border-radius: 5px;
+  }
+
+
+  .table-topline>button.selected, .left-column>button.selected {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  }
+
+  .table-topline {
+    text-align: center;
+  }
+
+  .action-grid .action-roller {
+    grid-row: 1;
+    grid-column: 1;
   }
 
   .action-grid .organize {  
@@ -478,48 +506,48 @@ input[type="radio"]:checked {
       grid-column: 7;
   }
 
-  .action-grid .music:hover ~ .music > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .music:hover ~ .music > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .violence:hover ~ .violence > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .violence:hover ~ .violence > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .tech:hover ~ .tech > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .tech:hover ~ .tech > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .authority:hover ~ .authority > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .authority:hover ~ .authority > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .minds:hover ~ .minds > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .minds:hover ~ .minds > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .mojo:hover ~ .mojo > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .mojo:hover ~ .mojo > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .organize:hover ~ .organize > .left-column > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .organize:hover ~ .organize > .left-column > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .perform:hover ~ .perform > .left-column > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .perform:hover ~ .perform > .left-column > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .pose:hover ~ .pose > .left-column > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .pose:hover ~ .pose > .left-column > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .perceive:hover ~ .perceive > .left-column > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .perceive:hover ~ .perceive > .left-column > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
-  .action-grid .evade:hover ~ .evade > .left-column > input[type=number] {
-    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-dark);
+  .action-grid .evade:hover ~ .evade > .left-column > button {
+    box-shadow: 0 0 var(--fade-end) var(--fade-begin) var(--color-light);
   }
 
   .left-column {
@@ -735,23 +763,23 @@ input[type="radio"]:checked {
   display: flex;
 }
 
-.organizeMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .organize {
+.organize-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .organize {
   display: block;
 }
 
-.performMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perform {
+.perform-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perform {
   display: block;
 }
 
-.poseMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .pose {
+.pose-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .pose {
   display: block;
 }
 
-.evadeMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .evade {
+.evade-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .evade {
   display: block;
 }
 
-.perceiveMojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perceive {
+.perceive-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perceive {
   display: block;
 }
 
@@ -1342,3 +1370,14 @@ input[type="radio"]:checked {
       var(--clock-gradient-filled) 360deg, var(--clock-gradient-filled) 360deg
     );
   }
+
+
+
+
+
+
+/* Indicate that the toggle is active */
+input.sheet-flag[value="1"] ~ button.sheet-toggle {
+  border-color: blue;
+  font-weight: bold;
+}
