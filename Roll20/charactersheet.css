@@ -17,7 +17,8 @@
 
 .character-tab,
 .band-tab,
-.revolution-tab {
+.revolution-tab,
+.npc-tab {
   display: none;
   width: 100%;
 }
@@ -31,6 +32,9 @@
 }
 
 .sheet-toggle[value="revolution"] ~ .revolution-tab {
+  display:block;
+}
+.sheet-toggle[value="npcs"] ~ .npc-tab {
   display:block;
 }
 
@@ -74,6 +78,7 @@
     "relationships  genre"
     "solos          riffs"
     "injury         injury"
+    "notes          gear"
     "mojo           mojo"
   }
 .names-cell {
@@ -120,24 +125,18 @@
   grid-area: injury;
   padding-top: 1em;
 }
+.notes-cell {
+  grid-area: notes;
+}
+.gear-cell {
+  grid-area: gear;
+}
 .mojo-cell {
   grid-area: mojo;
 }
 .descent-indicator[value="starchild" i] ~ .action-score-cell .action-grid .mojo {
   display: block;
 }
-/*.stress-cell {
-  grid-area: stress;
-}
-.rough-cell {
-  grid-area: rough;
-}
-.bloody-cell {
-  grid-area: bloody;
-}
-.deadly-cell {
-  grid-area: deadly;
-}*/
 
 .band-section {
   display: grid;
@@ -303,7 +302,6 @@
   grid-column: 4;
   text-align: center;
 }
-
 
 .ui-dialog .charsheet .action-grid input[type="number"].score {
   width: 2em;
@@ -735,69 +733,69 @@ textarea.full {
 }
 
 /* MOJO */
-.mojo-cell {
-  display: none;
-}
+  .mojo-cell {
+    display: none;
+  }
 
-.descent-indicator[value="starchild" i] ~ .mojo-cell {
-  display: inherit;
-}
+  .descent-indicator[value="starchild" i] ~ .mojo-cell {
+    display: inherit;
+  }
 
-.mojo-line {
-  display: none;
-  height: 5em;
-}
+  .mojo-line {
+    display: none;
+    height: 5em;
+  }
 
-.mojo-grid .repcontrol {
-  display:none;
-}
+  .mojo-grid .repcontrol {
+    display:none;
+  }
 
-.mojo-talent {
-  display: none;
-  text-align: center;
-}
+  .mojo-talent {
+    display: none;
+    text-align: center;
+  }
 
-.mojo-line h3 {
-  width: 5em;
-  margin: 10px;
-}
+  .mojo-line h3 {
+    width: 5em;
+    margin: 10px;
+  }
 
-.mojo-line p {
-  width: 7em;
-  margin: 10px;
-}
+  .mojo-line p {
+    width: 7em;
+    margin: 10px;
+  }
 
-.riff-indicator[value~="flex" i] ~ .flex {
-  display: flex;
-}
+  .riff-indicator[value~="flex" i] ~ .flex {
+    display: flex;
+  }
 
-.riff-indicator[value~="sparkle" i] ~ .sparkle {
-  display: flex;
-}
+  .riff-indicator[value~="sparkle" i] ~ .sparkle {
+    display: flex;
+  }
 
-.riff-indicator[value~="vibe" i] ~ .vibe {
-  display: flex;
-}
+  .riff-indicator[value~="vibe" i] ~ .vibe {
+    display: flex;
+  }
 
-.organize-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .organize {
-  display: block;
-}
+  .organize-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .organize {
+    display: block;
+  }
 
-.perform-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perform {
-  display: block;
-}
+  .perform-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perform {
+    display: block;
+  }
 
-.pose-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .pose {
-  display: block;
-}
+  .pose-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .pose {
+    display: block;
+  }
 
-.evade-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .evade {
-  display: block;
-}
+  .evade-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .evade {
+    display: block;
+  }
 
-.perceive-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perceive {
-  display: block;
-}
+  .perceive-mojo-indicator[value="1"] ~ .mojo-grid .repcontainer .repitem .mojo-block .perceive {
+    display: block;
+  }
 
 /* FACTION STATUS */
   .faction-status-container {
@@ -1032,66 +1030,72 @@ textarea.full {
     height:3em;
   }
 
-/*@media print {
-  .character-section {
-    grid-template-columns: 1fr 1fr;
-    width: 7in;
+/* NPCs */
+  .npc-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(4, auto);
   }
-  .logo-cell {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-  .action-score-cell {
-    grid-column: 1;
-    grid-row: 3 / span 2;
-  }
-  .names-cell {
-    grid-column: 2;
+  .npc-name {
+    grid-column: 1/span 2;
     grid-row: 1;
   }
-  .descent-cell {
+  .npc-action-scores {
+    grid-column: 1;
+    grid-row: 2/span 2;
+  }
+  .npc-secondary-stats {
     grid-column: 2;
     grid-row: 2;
   }
-  .roles-cell {
+  .npc-injury {
     grid-column: 2;
     grid-row: 3;
   }
-  .fame-cell {
-    grid-column: 2;
+  .npc-injury .injury-container {
+    padding-top: 10px;
+  }
+  .npc-notes {
+    grid-column: 1/span 2;
     grid-row: 4;
   }
-  .riffs-cell {
-    grid-column: 2;
-    grid-row: 6;
+  .npc-secondary-stats .score-block {
+    display: inline-block;
   }
-  .solos-cell {
-    grid-column: 1;
-    grid-row: 6;
+
+  .dogsheet .repcontainer .repitem {
+    width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
   }
-  .genre-cell {
-    grid-column: 1;
-    grid-row: 5;
+
+  .dogsheet .repcontainer {
+    display: flex;
+    flex-wrap: wrap;
   }
-  .instruments-cell {
-    grid-column: 2;
-    grid-row: 5;
+  input[type="checkbox"].npc-check {
+    display:none;
   }
-  .relationships-cell {
-    grid-column: 1;
-    grid-row: 7;
+  .npc-score[value="1"] ~ .npc-check[class*="1"] {
+    display: inline-block;
   }
-  .stress-cell {
-    grid-column: 1;
-    grid-row: 8;
+  .npc-score[value="2"] ~ .npc-check[class*="2"] {
+    display: inline-block;
   }
-  .violence-cell {
-    grid-column: 2;
-    grid-row: 7 / span 2;
+  .npc-score[value="3"] ~ .npc-check[class*="3"] {
+    display: inline-block;
   }
-}*/
+  .npc-score[value="4"] ~ .npc-check[class*="4"] {
+    display: inline-block;
+  }
+  .npc-score[value="5"] ~ .npc-check[class*="5"] {
+    display: inline-block;
+  }
+  .npc-score[value="6"] ~ .npc-check[class*="6"] {
+    display: inline-block;
+  }
+
 
 /*  CLOCK STUFF  */
 
@@ -1386,14 +1390,3 @@ textarea.full {
       var(--clock-gradient-filled) 360deg, var(--clock-gradient-filled) 360deg
     );
   }
-
-
-
-
-
-
-/* Indicate that the toggle is active */
-input.sheet-flag[value="1"] ~ button.sheet-toggle {
-  border-color: blue;
-  font-weight: bold;
-}

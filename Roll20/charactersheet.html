@@ -16,6 +16,7 @@
               <option value="character" class="character-section-select" selected>Character</option>
               <option value="band" class="band-section-select">Band</option>
               <option value="revolution" class="revolution-section-select">Revolution</option>
+              <option value="npcs" class="revolution-section-select">NPCs</option>
             </select>
           </h2>
         </div>
@@ -24,12 +25,13 @@
         <div class="character-section">
           <input type="hidden" class="descent-indicator" name="attr_descent"/>
           <div class="names-cell">
-            <h2> Names </h2>
+            <h2> Names & Pronouns </h2>
               <textarea class="full name" name="attr_names" type="text"></textarea>
           </div>
           <div class="descent-cell">
             <h2> Descent </h2>
             <select class="full dropdown" name="attr_descent">
+              <option value=""></option>
               <option value="earthling">Earthling</option>
               <option value="starchild">Starchild</option>
             </select>
@@ -292,7 +294,7 @@
             <textarea class="full" name="attr_genre" type="text"></textarea>
           </div>
           <div class="instruments-cell">
-            <h2> Instruments/Styles </h2>
+            <h2> Instruments/Styles<span class="loops">/Loops</span> </h2>
               <textarea class="full" name="attr_instrument" type="text"></textarea>
           </div>
           <div class="riffs-cell">
@@ -331,6 +333,7 @@
                 </div>
                 <div class="relationship-type">
                   <select name="attr_relationshipType" class="full">
+                    <option value=""></option>
                     <option value="friendship">Friendship</option>
                     <option value="love">Love</option>
                     <option value="rivalry">Rivalry</option>
@@ -539,6 +542,16 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="notes-cell">
+            <h3>Notes</h3>
+            <textarea class="full">
+            </textarea>
+          </div>
+          <div class="gear-cell">
+            <h3>Gear</h3>
+            <textarea class="full">
+            </textarea>
           </div>
           <div class="mojo-cell">
             <h2>Mojo</h2>
@@ -1420,6 +1433,281 @@
               <input type="checkbox" class="bubble" name="attr_revolutionaryViolenceCheck"/>
               <h4>Revolutionary Violence</h4>
             </div>          
+          </div>
+        </div>
+      </div>
+      <div class="npc-tab">
+        <h2>NPCs</h2>
+        <div class="dogsheet">
+          <fieldset class="repeating_npcs">
+            <div class="npc-container">
+              <div class="npc-name">
+                <h3>Name<br/>
+                  <input type="text" name="attr_npcName" class="full"/>
+                </h3>
+              </div>
+              <div class="npc-action-scores">
+                <label>
+                  Music<br/>
+                  <input type="number" min="0" max="6" class="score" name="attr_npcMusic">
+                  <input type="hidden" class="npc-score" name="attr_npcMusic">
+                  <input name="attr_npcMusicUsed1" class="bubble npc-check value123456" type="checkbox"/>
+                  <input name="attr_npcMusicUsed2" class="bubble npc-check value23456" type="checkbox"/>
+                  <input name="attr_npcMusicUsed3" class="bubble npc-check value3456" type="checkbox"/>
+                  <input name="attr_npcMusicUsed4" class="bubble npc-check value456" type="checkbox"/>
+                  <input name="attr_npcMusicUsed5" class="bubble npc-check value56" type="checkbox"/>
+                  <input name="attr_npcMusicUsed6" class="bubble npc-check value6" type="checkbox"/>
+                </label>
+                <label>
+                  Violence<br/>
+                  <input type="number" min="0" max="6" class="score" name="attr_npcViolence">
+                  <input type="hidden" class="npc-score" name="attr_npcViolence">
+                  <input name="attr_npcViolenceUsed1" class="bubble npc-check value123456" type="checkbox"/>
+                  <input name="attr_npcViolenceUsed2" class="bubble npc-check value23456" type="checkbox"/>
+                  <input name="attr_npcViolenceUsed3" class="bubble npc-check value3456" type="checkbox"/>
+                  <input name="attr_npcViolenceUsed4" class="bubble npc-check value456" type="checkbox"/>
+                  <input name="attr_npcViolenceUsed5" class="bubble npc-check value56" type="checkbox"/>
+                  <input name="attr_npcViolenceUsed6" class="bubble npc-check value6" type="checkbox"/>
+                </label>
+                <label>
+                  Tech<br/>
+                  <input type="number" min="0" max="6" class="score npc-score" name="attr_npcTech">
+                  <input type="hidden" class="npc-score" name="attr_npcTech">
+                  <input name="attr_npcTechUsed1" class="bubble npc-check value123456" type="checkbox"/>
+                  <input name="attr_npcTechUsed2" class="bubble npc-check value23456" type="checkbox"/>
+                  <input name="attr_npcTechUsed3" class="bubble npc-check value3456" type="checkbox"/>
+                  <input name="attr_npcTechUsed4" class="bubble npc-check value456" type="checkbox"/>
+                  <input name="attr_npcTechUsed5" class="bubble npc-check value56" type="checkbox"/>
+                  <input name="attr_npcTechUsed6" class="bubble npc-check value6" type="checkbox"/>
+                </label>
+                <label>
+                  Authority<br/>
+                  <input type="number" min="0" max="6" class="score npc-score" name="attr_npcAuthority">
+                  <input type="hidden" class="npc-score" name="attr_npcAuthority">
+                  <input name="attr_npcAuthorityUsed1" class="bubble npc-check value123456" type="checkbox"/>
+                  <input name="attr_npcAuthorityUsed2" class="bubble npc-check value23456" type="checkbox"/>
+                  <input name="attr_npcAuthorityUsed3" class="bubble npc-check value3456" type="checkbox"/>
+                  <input name="attr_npcAuthorityUsed4" class="bubble npc-check value456" type="checkbox"/>
+                  <input name="attr_npcAuthorityUsed5" class="bubble npc-check value56" type="checkbox"/>
+                  <input name="attr_npcAuthorityUsed6" class="bubble npc-check value6" type="checkbox"/>
+                </label>
+                <label>
+                  Minds<br/>
+                  <input type="number" min="0" max="6" class="score npc-score" name="attr_npcMinds">
+                  <input type="hidden" class="npc-score" name="attr_npcMinds">
+                  <input name="attr_npcMindsUsed1" class="bubble npc-check value123456" type="checkbox"/>
+                  <input name="attr_npcMindsUsed2" class="bubble npc-check value23456" type="checkbox"/>
+                  <input name="attr_npcMindsUsed3" class="bubble npc-check value3456" type="checkbox"/>
+                  <input name="attr_npcMindsUsed4" class="bubble npc-check value456" type="checkbox"/>
+                  <input name="attr_npcMindsUsed5" class="bubble npc-check value56" type="checkbox"/>
+                  <input name="attr_npcMindsUsed6" class="bubble npc-check value6" type="checkbox"/>
+                </label>
+                <label>
+                  Mojo<br/>
+                  <input type="number" min="0" max="6" class="score npc-score" name="attr_npcMojo">
+                  <input type="hidden" class="npc-score" name="attr_npcMojo">
+                  <input name="attr_npcMojoUsed1" class="bubble npc-check value123456" type="checkbox"/>
+                  <input name="attr_npcMojoUsed2" class="bubble npc-check value23456" type="checkbox"/>
+                  <input name="attr_npcMojoUsed3" class="bubble npc-check value3456" type="checkbox"/>
+                  <input name="attr_npcMojoUsed4" class="bubble npc-check value456" type="checkbox"/>
+                  <input name="attr_npcMojoUsed5" class="bubble npc-check value56" type="checkbox"/>
+                  <input name="attr_npcMojoUsed6" class="bubble npc-check value6" type="checkbox"/>
+                </label>
+              </div>
+              <div class="npc-secondary-stats">
+                <div class="score-block">
+                  <label>
+                    Threat<br/>
+                    <input type="number" min="0" max="6" name="attr_npcThreat">
+                  </label>
+                </div>
+                <div class="score-block">
+                  <label>
+                    Leadership<br/>
+                    <input type="number" min="0" max="6" name="attr_npcLeadership">
+                  </label>
+                </div>
+              </div>
+              <div class="npc-injury">
+                <div class="injury-container">
+                  <div class="injury-clock">
+                    <div class="clock-container-6">
+                      <input
+                         type="radio"
+                         value="0"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-0" checked/>
+                      <input
+                         type="radio"
+                         value="1"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-1 no-show"/>
+                      <input
+                         type="radio"
+                         value="2"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-2 no-show"/>
+                      <input
+                         type="radio"
+                         value="3"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-3 no-show"/>
+                      <input
+                         type="radio"
+                         value="4"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-4 no-show"/>
+                      <input
+                         type="radio"
+                         value="5"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-5 no-show"/>
+                      <input
+                         type="radio"
+                         value="6"
+                         name="attr_npcRoughDamage"
+                         class="clock-checkbox clock-6 no-show"/>
+                      <div class="clock"></div>
+                    </div>
+                  </div>
+                  <div class="third-degree">
+                    Out
+                  </div>
+                  <div class="second-degree">
+                    Cowed
+                  </div>
+                  <div class="first-degree">
+                    Timid
+                  </div>
+                  <div class="injury-label">
+                    <h3>Rough</h3>
+                  </div>
+                </div>
+                <div class="injury-container">
+                  <div class="injury-clock">
+                    <div class="clock-container-6">
+                      <input
+                         type="radio"
+                         value="0"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-0" checked/>
+                      <input
+                         type="radio"
+                         value="1"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-1 no-show"/>
+                      <input
+                         type="radio"
+                         value="2"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-2 no-show"/>
+                      <input
+                         type="radio"
+                         value="3"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-3 no-show"/>
+                      <input
+                         type="radio"
+                         value="4"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-4 no-show"/>
+                      <input
+                         type="radio"
+                         value="5"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-5 no-show"/>
+                      <input
+                         type="radio"
+                         value="6"
+                         name="attr_npcBloodyDamage"
+                         class="clock-checkbox clock-6 no-show"/>
+                      <div class="clock"></div>
+                    </div>
+                  </div>
+                  <div class="third-degree">
+                    Out
+                  </div>
+                  <div class="second-degree">
+                    Cowed
+                  </div>
+                  <div class="first-degree">
+                    Timid
+                  </div>
+                  <div class="injury-label">
+                    <h3>Bloody</h3>
+                  </div>
+                </div>
+                <div class="injury-container">
+                  <div class="injury-clock">
+                    <div class="clock-container-6">
+                      <input
+                         type="radio"
+                         value="0"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-0" checked/>
+                      <input
+                         type="radio"
+                         value="1"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-1 no-show"/>
+                      <input
+                         type="radio"
+                         value="2"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-2 no-show"/>
+                      <input
+                         type="radio"
+                         value="3"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-3 no-show"/>
+                      <input
+                         type="radio"
+                         value="4"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-4 no-show"/>
+                      <input
+                         type="radio"
+                         value="5"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-5 no-show"/>
+                      <input
+                         type="radio"
+                         value="6"
+                         name="attr_npcDeadlyDamage"
+                         class="clock-checkbox clock-6 no-show"/>
+                      <div class="clock"></div>
+                    </div>
+                  </div>
+                  <div class="third-degree">
+                    Out
+                  </div>
+                  <div class="second-degree">
+                    Cowed
+                  </div>
+                  <div class="first-degree">
+                    Timid
+                  </div>
+                  <div class="injury-label">
+                    <h3>Deadly</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="npc-notes">
+                <!-- mojo types -->
+                <h3>
+                  Gear<br/>
+                  <textarea type="text" name="attr_npcGear" class="full"></textarea>
+                </h3>
+                <h3>
+                  Abilities<br/>
+                  <textarea type="text" name="attr_npcAbilities" class="full"></textarea>
+                </h3>
+                <h3>
+                  Mojo<br/>
+                  <textarea type="text" name="attr_npcMojo" class="full"></textarea>
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
