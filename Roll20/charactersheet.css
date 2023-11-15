@@ -43,11 +43,11 @@
   grid-template-columns: repeat(2, 365px);
   column-gap: 20px;
   grid-template-rows: 150px;
-  height:180px;
+  height:200px;
   margin-bottom: 1em;
   background-image: url(https://raw.githubusercontent.com/richranallo/vg-charactersheet/ec2a05d8c12e775855bcd3c9a860430d2a93b5d2/img/right-block.svg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-width: cover;
 }
 .logo-cell {
   grid-template-columns: 1;
@@ -61,6 +61,9 @@
   grid-template-rows: 1;
   align-self: end;
   padding-left: 5em;
+}
+.sheet-type-cell h2 select {
+  color: white;
 }
 
 .character-section {
